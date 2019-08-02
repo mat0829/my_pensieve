@@ -8,5 +8,4 @@ use Rack::MethodOverride
 
 use MemoriesController
 use UsersController
-use EmotionsController
 run ApplicationController

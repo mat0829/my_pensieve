@@ -1,0 +1,6 @@
+<p> Here are your memories, <%= @user.username %>
+<% @user.memories.each do |memory| %>
+  <div>
+    <%= memory.content %>
+  </div>
+<% end %>
