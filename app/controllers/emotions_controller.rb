@@ -22,13 +22,22 @@ class EmotionsController < ApplicationController
       if params[:feeling] == ""
         redirect to "/emotions/new"
       else
-        @emotion = current_user.emotions.build(feeling: params[:feeling])
+        @emotion = Emotion.create(feeling: params[:feeling])
         if @emotion.save
           redirect to "/emotions/#{@emotion.id}"
         else
           redirect to "/emotions/new"
         end
       end
+    else
+      redirect to '/login'
+    end
+  end
+  
+  get '/emotions/:id' do
+    if logged_in?
+      @emotion = Emotion.find_by_id(params[:id])
+      erb :'emotions/show_emotion'
     else
       redirect to '/login'
     end
