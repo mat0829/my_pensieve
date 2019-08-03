@@ -6,6 +6,7 @@ end
 
 use Rack::MethodOverride
 
+use EmotionsController
 use MemoriesController
 use UsersController
 run ApplicationController
