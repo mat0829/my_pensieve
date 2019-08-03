@@ -1,3 +1,4 @@
 class Emotion < ActiveRecord::Base 
-  belongs_to :memory
+  has_many :memory_emotions
+  has_many :memories, through: :memory_emotions
 end
