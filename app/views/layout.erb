@@ -15,9 +15,12 @@
   </head>
   <body>
     <div class="wrapper">
-      <center><h1><%=current_user.username %>'s Pensieve</h1></center>
-      
-        <%= yield %>
+      <% if logged_in?%>
+        <center><h1><%=current_user.username %>'s Pensieve</h1></center>
+      <% else %>
+        <center><h1>Welcome to My Pensieve</h1></center>
+      <% end %>  
+          <%= yield %>
 
       <footer class="branding">
         <small>&copy; 2019 <strong>My Pensieve</strong></small>

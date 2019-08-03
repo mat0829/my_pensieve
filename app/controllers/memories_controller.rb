@@ -11,6 +11,7 @@ class MemoriesController < ApplicationController
 
   get '/memories/new' do
     if logged_in?
+      @emotions = Emotion.all
       erb :'memories/create_memory'
     else
       redirect to '/login'
