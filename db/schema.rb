@@ -11,7 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2) do
+ActiveRecord::Schema.define(version: 3) do
+
+  create_table "emotions", force: :cascade do |t|
+    t.string  "feeling"
+    t.integer "memory_id"
+  end
 
   create_table "memories", force: :cascade do |t|
     t.string  "content"
