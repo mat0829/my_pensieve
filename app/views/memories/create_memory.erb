@@ -1,16 +1,20 @@
 <h1>Add a New Memory</h1>
 
 <form action="/memories" method="POST">
-  <label> Artist Name </label>
-  <input type="text" name="Artist Name"> </br>
+  <label>Title</label>
+  <input type="text" name="title"> </br>
 
-  <label> Song Name </label>
-  <input type="text" name="Name"> </br>
+  <label>New Memory</label>
+  <input type="text" name="content"> </br>
 
-  <label> Genres </label>
-  <% Genre.all.each do |genre| %>
-    <input id="<%= genre.name %>" type="checkbox" name="genres[]" value="<%= genre.id %>">
+  <label>Currently Available Emotions:</label>
+  <ul>
+  <% Emotion.all.each do |emotion| %>
+    <li><input id="<%= emotion.name %>" type="checkbox" name="emotions[]" value="<%= emotion.id %>"></li>
   <% end %>
+  </ul>
+  <label>New Emotion</label>
+  <input type="text" name="emotion_name"> </br>
 
-  <input type="submit" value="Create">
+  <input type="submit" value="Create Memory">
 </form>
