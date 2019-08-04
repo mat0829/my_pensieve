@@ -1,7 +1,12 @@
 <h4>New Memory:</h4>
 <ul>
   <li><%= @memory.content %></li>
+  <% @memory.emotions.each do |emotion| %>
+    <li><%= emotion.feeling %></li>
 </ul>
+
+
+  <% end %>
 
 <form method="post" action="/memories/<%=@memory.id%>/delete">
   <input id="hidden" type="hidden" name="_method" value="DELETE">

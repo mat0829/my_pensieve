@@ -24,6 +24,9 @@ class MemoriesController < ApplicationController
         redirect to "/memories/new"
       else
         @memory = current_user.memories.build(content: params[:content])
+        if !params["feeling"].empty?
+         @memory.emotions << Emotion.create(feeling: params["feeling"])
+        end
         if @memory.save
           redirect to "/memories/#{@memory.id}"
         else
