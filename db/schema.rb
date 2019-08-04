@@ -14,12 +14,12 @@
 ActiveRecord::Schema.define(version: 6) do
 
   create_table "emotions", force: :cascade do |t|
-    t.string "feeling"
+    t.string "name"
   end
 
   create_table "memories", force: :cascade do |t|
+    t.string  "title"
     t.string  "content"
-    t.string  "emotions"
     t.integer "user_id"
   end
 

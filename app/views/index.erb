@@ -1,14 +1,13 @@
 <nav>
   <% if logged_in? %>
     <h3>Welcome, <%=current_user.username %>!</h3>
-    <a href="/memories/new"> Create Memory </a> |
-    <a href="/logout"> Log Out </a>
-    
-
+      <a href="/memory/new">Create Memory</a> |
+      <a href="/memories">See All Your Memories</a> |
+      <a href="/emotions">See All Your Emotions</a> |
+      <a href="/logout"> Log Out </a>
   <% else %>
     <p>Please Sign in or Sign up below:</p>
     <a href="/signup">Create User</a> |
     <a href="/login"> Sign In </a>
   <%end %>
-
 </nav>

@@ -1,7 +1,7 @@
 class CreateEmotions < ActiveRecord::Migration
   def change
     create_table :emotions do |t|
-      t.string :feeling
+      t.string :name
     end
   end
 end

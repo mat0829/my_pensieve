@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
   has_many :memories
+  has_many :emotions, through: :memories
+  has_many :players, through: :memories
   has_secure_password
   
   def slug
