@@ -1,13 +1,10 @@
-<h3>Welcome, <%= current_user.username %>!</h3>
+<h1>Welcome, <%= current_user.username %>!</h1>
 
 <% if !@memories.empty? %>
-  
-  Your Memories:
+  <h2>Your Memories:</h2>
   <ul>
   <% @memories.each do |memory| %>
-    <div>
-      <li><h4><%= memory.content %></h4></li>
-    </div>
+      <li><h4>"<%= memory.title %>" <a href="/memories/<%= memory.slug %>">Memory info:</a></h4></li><br>
   <% end %>
   </ul>
   
