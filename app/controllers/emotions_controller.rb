@@ -10,9 +10,9 @@ class EmotionsController < ApplicationController
   end
   
   get '/emotions/:slug' do 
-    @genre = Genre.find_by_slug(params[:slug])
+    @emotion = Emotion.find_by_slug(params[:slug])
 
-    erb :'genres/show_emotion'
+    erb :'emotions/show_emotion'
   end
   
 end

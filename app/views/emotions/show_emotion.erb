@@ -1,6 +1,7 @@
-<h4>New Emotion:</h4>
 <ul>
-  <li><%= @emotion.feeling %></li>
+ <% @emotion.memories.each do |memory| %>
+   <li><a href="/memories/<%= memory.slug %>"><%= memory.name %> </a></li>
+ <% end %>
 </ul>
 
 <form method="post" action="/emotions/<%=@emotion.id%>/delete">
