@@ -11,6 +11,7 @@ class MemoriesController < ApplicationController
 
   get '/memories/new' do
     if logged_in?
+      @memories = Memory.all
       @emotions = Emotion.all
       erb :'memories/create_memory'
     else
@@ -48,6 +49,7 @@ class MemoriesController < ApplicationController
   get '/memories/:slug/edit' do
     if logged_in?
       @memory = Memory.find_by_slug(params[:slug])
+      @emotions = Emotion.all
       if @memory && @memory.user == current_user
         erb :'memories/edit_memory'
       else

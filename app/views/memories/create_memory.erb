@@ -3,14 +3,14 @@
 <form action="/memories" method="POST">
   <label>Title</label>
   <input type="text" name="title"> </br>
-
-  <label>New Memory</label>
+  
+  <label>Add Memory</label>
   <input type="text" name="content"> </br>
 
   <label>Currently Available Emotions:</label>
   <ul>
-  <% Emotion.all.each do |emotion| %>
-    <li><input id="<%= emotion.name %>" type="checkbox" name="emotions[]" value="<%= emotion.id %>"></li>
+  <% @emotions.each do |emotion| %>
+    <li><input id="<%= emotion.name %>" type="checkbox" name="emotions[]" value="<%= emotion.id %>"><%= emotion.name %></li>
   <% end %>
   </ul>
   <label>New Emotion</label>
