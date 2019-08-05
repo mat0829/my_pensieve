@@ -6,20 +6,20 @@
   <ul>
   <% @emotions.each do |emotion| %>
     <div>
-      <li><h4><%= emotion.feeling %></h4></li>
+      <li><h4><%= emotion.name %></h4></li>
     </div>
   <% end %>
   </ul>
   
-  <form method="GET" action="/emotions/new">
-  <input type="submit" value="Create a New Emotion" />
+  <form method="GET" action="/memories">
+  <input type="submit" value="Back to Memories" />
   </form> <br>
   
 <% else %>
   
   <h2><%= current_user.username %>, you haven't made any Emotions yet</h2>
-  <form method="GET" action="/emotions/new">
-  <input type="submit" value="Create a New Emotion" />
+  <form method="GET" action="/memories">
+  <input type="submit" value="Back to your Memories Page" />
   </form>
   
   <% end %>

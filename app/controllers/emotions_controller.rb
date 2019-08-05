@@ -9,10 +9,13 @@ class EmotionsController < ApplicationController
     end
   end
   
-  get '/emotions/:slug' do 
-    @emotion = Emotion.find_by_slug(params[:slug])
-
-    erb :'emotions/show_emotion'
+  get '/emotions/:slug' do
+    if logged_in?
+      @emotion = Emotion.find_by_slug(params[:slug])
+      erb :'emotions/show_emotion'
+    else
+      redirect to '/login'
+    end
   end
   
 end
