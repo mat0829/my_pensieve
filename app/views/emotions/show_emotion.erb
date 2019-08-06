@@ -1,0 +1,12 @@
+<h1> @emotion.name</h1>
+<ul>
+  <% @emotion.memory_emotions.each do |memory| %>
+    <li><a href="/memories/<%= memory.id %>"><%= memory.title %> </a></li>
+  <% end %>
+</ul>
+
+<ul>
+  <% @emotion.memory_players.each do |player| %>
+    <li><a href="/players/<%= player.id %>"><%= player.name %> </a></li>
+  <% end %>
+</ul>
