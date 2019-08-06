@@ -1,9 +1,8 @@
 <nav>
   <% if logged_in? %>
     <h3>Welcome, <%=current_user.username %>!</h3>
-      <a href="/memory/new">Create Memory</a> |
+      <a href="/memories/new">Create Memory</a> |
       <a href="/memories">See All Your Memories</a> |
-      <a href="/emotions">See All Your Emotions</a> |
       <a href="/logout"> Log Out </a>
   <% else %>
     <p>Please Sign in or Sign up below:</p>

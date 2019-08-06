@@ -2,7 +2,7 @@
   <h1>Your Memories:</h1><br>
   
   <% @memories.each do |memory| %>
-    <p><%= memory.title %>" <a href="/memories/<%= memory.slug %>"> Contents of Memory:</a></p>
+    <p><%= memory.title %>" <a href="/memories/<%= memory.id %>"> I remember...</a></p>
   <% end %>
   
   <form method="GET" action="/memories/new">
