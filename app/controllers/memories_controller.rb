@@ -23,6 +23,7 @@ class MemoriesController < ApplicationController
       else
         if !params[:emotion][:name].empty?
           new_emotion = Emotion.create(name: params[:emotion)
+          new_emotion.memory_id = @memory.id
         end
         if @memory.save
           redirect to "/memories/#{@memory.id}"
