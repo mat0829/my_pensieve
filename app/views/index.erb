@@ -1,6 +1,6 @@
 <nav>
   <% if logged_in? %>
-    <h3>Welcome, <%=current_user.name %>!</h3>
+    <h3>Welcome, <%=current_user.name.capitalize %>!</h3>
       <a href="/memories/new">Create Memory</a> |
       <a href="/memories">See All Your Memories</a> |
       <a href="/logout"> Log Out </a>

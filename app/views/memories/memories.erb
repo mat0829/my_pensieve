@@ -12,7 +12,7 @@
   
 <% else %>
   
-  <h2><%= current_user.name %>, you haven't made any Memories yet</h2>
+  <h2><%= current_user.name.capitalize %>, you haven't made any Memories yet</h2>
   <form method="GET" action="/memories/new">
   <input type="submit" value="Add a New Memory" />
   </form>
