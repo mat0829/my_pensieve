@@ -7,14 +7,14 @@
   <% end %>
   </ul>
   <form method="GET" action="/memories/new">
-  <input type="submit" value="Add a New Memory" />
+  <input type="submit" value="Add a Memory" />
   </form> <br>
   
 <% else %>
   
   <h2><%= current_user.name.capitalize %>, you haven't made any Memories yet</h2>
   <form method="GET" action="/memories/new">
-  <input type="submit" value="Add a New Memory" />
+  <input type="submit" value="Add a Memory" />
   </form>
   
-  <% end %>
+<% end %>
