@@ -19,10 +19,10 @@ class MemoriesController < ApplicationController
 
   post '/memories' do
     if logged_in?
-      if params[:title] == "" || params[:content] == ""
+      if params[:name] == "" || params[:content] == ""
         redirect to "/memories/new"
       else
-        @memory = current_user.memories.build(title: params[:title], content: params[:content])
+        @memory = current_user.memories.build(name: params[:name], content: params[:content])
         if @memory.save
           redirect to "/memories/#{@memory.slug}"
         else
@@ -58,12 +58,12 @@ class MemoriesController < ApplicationController
 
   patch '/memories/:slug' do
     if logged_in?
-      if params[:title] == "" || params[:content] == ""
+      if params[:name] == "" || params[:content] == ""
         redirect to "/memories/#{params[:slug]}/edit"
       else
         @memory = Memory.find_by_slug(params[:slug])
         if @memory && @memory.user == current_user
-          if @memory.update(title: params[:title], content: params[:content])
+          if @memory.update(name: params[:name], content: params[:content])
             redirect to "/memories/#{@memory.slug}"
           else
             redirect to "/memories/#{@memory.slug}/edit"

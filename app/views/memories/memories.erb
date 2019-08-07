@@ -3,7 +3,7 @@
   
   <% @memories.each do |memory| %>
   <ul>
-    <li><h3>"<%= memory.title %>" <a href="/memories/<%= memory.slug %>"> Memory info:</a></h3></li>
+    <li><h3>"<%= memory.name %>" <a href="/memories/<%= memory.slug %>"> Memory info:</a></h3></li>
   <% end %>
   </ul>
   <form method="GET" action="/memories/new">
