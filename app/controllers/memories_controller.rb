@@ -23,8 +23,8 @@ class MemoriesController < ApplicationController
         redirect to "/memories/new"
       else
         @memory = current_user.memories.create(name: params[:name], content: params[:content])
-        unless params[:emotion][:name].empty?
-        @memory.emotions << Emotion.create(params[:emotion])
+        if !params["emotion"]["name"].empty?
+          @memory.emotions << Emotion.create(name: params["emotion"]["name"])
         end
         if @memory.save
           redirect to "/memories/#{@memory.slug}"
@@ -67,9 +67,10 @@ class MemoriesController < ApplicationController
         @memory = Memory.find_by_slug(params[:slug])
         if @memory && @memory.user == current_user
           if @memory.update(name: params[:name], content: params[:content])
-          unless params[:emotion][:name].empty?
-            @memory.emotions << Emotion.create(params[:emotion])
-          end 
+          if !params["emotion"]["name"].empty?
+            @memory.emotions << Emotion.create(name: params["emotion"]["name"])
+          end
+          @memory.save
             redirect to "/memories/#{@memory.slug}"
           else
             redirect to "/memories/#{@memory.slug}/edit"

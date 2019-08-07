@@ -6,11 +6,11 @@
     <h4>Available Emotions: </h4>
     <ul>
     <% Emotion.all.each do |emotion| %>
-      <label><%= emotion.name %></label>
-      <input type="checkbox" id="emotion_<%=emotion.id%>" name="figure[emotion_ids][]" value="<%= emotion.id %>"><br>
+      <label><li><%= emotion.name.capitalize %></li></label>
+      <input type="checkbox" id="emotion_<%=emotion.id%>" name="figure[emotion_ids][]" value="<%= emotion.id %>">
     <% end %>
     </ul>
-Create New Emotion: <input type="text" id="new_emotion" name="emotion[name]">
+  Create New Emotion: <input type="text" id="new_emotion" name="emotion[name]">
   
   <input class="btn btn-primary" type="submit" value="Bottle Memory">
 </form>
