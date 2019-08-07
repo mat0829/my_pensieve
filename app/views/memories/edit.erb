@@ -4,5 +4,14 @@
   <input id="hidden" type="hidden" name="_method" value="PATCH">
   <input type="text" name="name" value="<%= @memory.name %>">
   <input type="text" name="content" value="<%= @memory.content %>">
+  
+  <label>Edit Memory's Emotions</label><br>
+ <% Emotion.all.each do |emotion| %>
+    <label><%= emotion.name %></label>
+    <input type="checkbox" name="memory[emotion_ids][]" value="<%= emotion.id %>" id="<%= emotion.name %>" <%='checked' if @memory.emotions.include?(emotion) %>>
+  <% end %></br>
+ <label>Add New Emotion:</label>
+ <input type="text" id="new_emotion" name="emotion[name]"><br></br>
+ 
   <input type="submit" value="Edit Memory">
 </form>
