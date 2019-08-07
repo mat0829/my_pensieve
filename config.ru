@@ -6,8 +6,7 @@ end
 
 use Rack::MethodOverride
 
-use PlayersController
-use EmotionsController
+
 use MemoriesController
 use UsersController
 run ApplicationController

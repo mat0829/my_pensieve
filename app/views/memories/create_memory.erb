@@ -1,15 +1,6 @@
-<h1>Add a New Memory</h1>
-
+<h2>Add a New Memory</h2>
 <form action="/memories" method="POST">
-  <h2>Title: <input type="text" name="title"></h2>
-  <h3>Content: <input type="text" name="content"></h3>
-  
-  <label>Pool of Emotions: </label>
-  <ul>
-  <% Emotion.all.each do |emotion| %>
-    <li><input id="<%= emotion.name %>" type="checkbox" name="emotions[]" value="<%= emotion.id %>">emotion.name</li>
-  <% end %>
-  </ul>
-  <h3>New Emotion:  <input type="text" id="new_emotion" name="emotion[name]"></h3>
-  <input type="submit" value="Record a Memory">
+  <p>Title: <input type="text" name="title"></p>
+  <p>Content: <input type="text" name="content"></p>
+  <input class="btn btn-primary" type="submit" value="Add a New Memory">
 </form>
