@@ -18,13 +18,11 @@ class MemoriesController < ApplicationController
 
   post '/memories' do
     if logged_in?
-      if params[:content] == "" || params[:title] == ""
+      if params[:content].empty? || params[:title].empty?
         redirect to "/memories/new"
       else
-        @memory = current_user.memories.build(title: params[:title], content: params[:content])
-        @memory.emotion_ids = params[:emotions]
-        if !params["emotion"]["name"].empty?
-          @memory.emotions << Emotion.create(name: params["emotion"]["name"])
+        if !params[:emotion][:name].empty?
+          new_emotion = Emotion.create(name: params[:emotion)
         end
         if @memory.save
           redirect to "/memories/#{@memory.id}"
