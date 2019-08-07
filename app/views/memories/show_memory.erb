@@ -2,12 +2,12 @@
   <h2>'<%= @memory.content %>'</h2>
   
 
-<form method="post" action="/memories/<%=@memory.id%>/delete">
+<form method="post" action="/memories/<%=@memory.slug%>/delete">
   <input id="hidden" type="hidden" name="_method" value="DELETE">
   <input type="submit" value="Delete Memory">
 </form> <br>
 
-<form method="GET" action="/memories/<%=@memory.id%>/edit">
+<form method="GET" action="/memories/<%=@memory.slug%>/edit">
   <input type="submit" value="Edit Memory" />
 </form> <br>
 

@@ -1,4 +1,5 @@
 class MemoriesController < ApplicationController
+  
   get '/memories' do
     if logged_in?
       @memories = Memory.all
@@ -23,7 +24,7 @@ class MemoriesController < ApplicationController
       else
         @memory = current_user.memories.build(title: params[:title], content: params[:content])
         if @memory.save
-          redirect to "/memories/#{@memory.id}"
+          redirect to "/memories/#{@memory.slug}"
         else
           redirect to "/memories/new"
         end
@@ -33,9 +34,9 @@ class MemoriesController < ApplicationController
     end
   end
 
-  get '/memories/:id' do
+  get '/memories/:slug' do
     if logged_in?
-      @memory = Memory.find_by_id(params[:id])
+      @memory = Memory.find_by_slug(params[:slug])
       erb :'memories/show_memory'
     else
       redirect to '/login'
