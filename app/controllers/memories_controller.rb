@@ -67,6 +67,9 @@ class MemoriesController < ApplicationController
         @memory = Memory.find_by_slug(params[:slug])
         if @memory && @memory.user == current_user
           if @memory.update(name: params[:name], content: params[:content])
+          unless params[:emotion][:name].empty?
+            @memory.emotions << Emotion.create(params[:emotion])
+          end 
             redirect to "/memories/#{@memory.slug}"
           else
             redirect to "/memories/#{@memory.slug}/edit"
