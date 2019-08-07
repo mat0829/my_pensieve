@@ -3,7 +3,7 @@ class MemoriesController < ApplicationController
   get '/memories' do
     if logged_in?
       @memories = Memory.all
-      erb :'memories/memories'
+      erb :'memories/index'
     else
       redirect to '/login'
     end
@@ -11,7 +11,7 @@ class MemoriesController < ApplicationController
 
   get '/memories/new' do
     if logged_in?
-      erb :'memories/create_memory'
+      erb :'memories/new'
     else
       redirect to '/login'
     end
@@ -37,7 +37,7 @@ class MemoriesController < ApplicationController
   get '/memories/:slug' do
     if logged_in?
       @memory = Memory.find_by_slug(params[:slug])
-      erb :'memories/show_memory'
+      erb :'memories/show'
     else
       redirect to '/login'
     end
@@ -47,7 +47,7 @@ class MemoriesController < ApplicationController
     if logged_in?
       @memory = Memory.find_by_slug(params[:slug])
       if @memory && @memory.user == current_user
-        erb :'memories/edit_memory'
+        erb :'memories/edit'
       else
         redirect to '/memories'
       end
