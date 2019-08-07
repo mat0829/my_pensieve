@@ -1,5 +1,5 @@
 <% if !@memories.empty? %>
-  <h2>~ Your Memories ~</h2><br>
+  <h2>~ <%= current_user.name.capitalize %>'s Memories ~</h2><br>
   
   <% @memories.each do |memory| %>
   <ul>
