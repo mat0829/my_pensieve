@@ -1,6 +1,5 @@
   <h2>Title: "<%= @memory.title %>"</h2>
   <h2>'<%= @memory.content %>'</h2>
-  
 
 <form method="post" action="/memories/<%=@memory.slug%>/delete">
   <input id="hidden" type="hidden" name="_method" value="DELETE">
