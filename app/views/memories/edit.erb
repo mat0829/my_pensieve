@@ -2,8 +2,8 @@
 
 <form method="post" action="/memories/<%=@memory.slug%>">
   <input id="hidden" type="hidden" name="_method" value="PATCH">
-  <input type="text" name="name" value="<%= @memory.name %>">
-  <input type="text" name="content" value="<%= @memory.content %>">
+  Memory Name: <p><input type="text" name="name" value="<%= @memory.name %>"></p>
+  <p><textarea name="content" cols="50" rows="10"><%= @memory.content %></textarea></p>
   
   <label>Edit Memory's Emotions</label><br>
  <% Emotion.all.each do |emotion| %>
