@@ -1,1 +1,0 @@
-Emotion.create(name)

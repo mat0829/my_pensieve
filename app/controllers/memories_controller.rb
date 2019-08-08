@@ -5,7 +5,7 @@ class MemoriesController < ApplicationController
       @memories = Memory.all
       erb :'memories/index'
     else
-      redirect to '/login'
+      erb :'users/login', locals: {message: "You don't have access, please login"} 
     end
   end
 
@@ -13,44 +13,63 @@ class MemoriesController < ApplicationController
     if logged_in?
       erb :'memories/new'
     else
-      redirect to '/login'
+      erb :'users/login', locals: {message: "You don't have access, please login"}
     end
   end
 
   post '/memories' do
+    if params.values.any? {|value| value == ""}
+      erb :'memories/new', locals: {message: "You're missing information!"}
+    else
+      user = User.find(session[:user_id])
+      @memory = Memory.create(name: params[:name], content: params[:content], user_id: user.id)
+      redirect to "/memories/#{@memory.id}"
+    end
+  end
+
+  get '/memories/:id' do 
     if logged_in?
-      if params[:name] == "" || params[:content] == ""
-        redirect to "/memories/new"
+      @memory = Memory.find(params[:id])
+      erb :'memories/show'
+    else 
+      erb :'users/login', locals: {message: "You don't have access, please login"}
+    end
+  end
+
+  get '/memories/:id/edit' do
+    if logged_in?
+      @memory = Memory.find(params[:id])
+      if @memory.user_id == session[:user_id]
+       erb :'memories/edit'
       else
-        @memory = current_user.memories.create(name: params[:name], content: params[:content])
-        if !params["emotion"]["name"].empty?
-          @memory.emotions << Emotion.create(name: params["emotion"]["name"])
-        end
-        if @memory.save
-          redirect to "/memories/#{@memory.slug}"
-        else
-          redirect to "/memories/new"
-        end
+      erb :'memories', locals: {message: "You don't have access to edit this project"}
       end
     else
-      redirect to '/login'
+      erb :'users/login', locals: {message: "You don't have access, please login"}
     end
   end
 
-  get '/memories/:slug' do
-    if logged_in?
-      @memory = Memory.find_by_slug(params[:slug])
-      erb :'memories/show'
+  patch '/memories/:id' do 
+    if params.values.any? {|value| value == ""}
+      @memory = Memory.find(params[:id])
+      erb :'memories/edit', locals: {message: "You're missing information"}
+      redirect to "/memories/#{params[:id]}/edit"
     else
-      redirect to '/login'
+      @memory = Memory.find(params[:id])
+      @memory.name = params[:name]
+      @memory.content = params[:content]
+      @memory.save
+      redirect to "/memories/#{@memory.id}"
     end
   end
 
-  get '/memories/:slug/edit' do
-    if logged_in?
-      @memory = Memory.find_by_slug(params[:slug])
-      if @memory && @memory.user == current_user
-        erb :'memories/edit'
+  delete '/memories/:id/delete' do 
+    @memory = Memory.find(params[:id])
+    if session[:user_id]
+      @memory = Memory.find(params[:id])
+      if @memory.user_id == session[:user_id]
+        @memory.delete
+        redirect to '/memories'
       else
         redirect to '/memories'
       end
@@ -58,41 +77,5 @@ class MemoriesController < ApplicationController
       redirect to '/login'
     end
   end
-
-  patch '/memories/:slug' do
-    if logged_in?
-      if params[:name] == "" || params[:content] == ""
-        redirect to "/memories/#{params[:slug]}/edit"
-      else
-        @memory = Memory.find_by_slug(params[:slug])
-        if @memory && @memory.user == current_user
-          if @memory.update(name: params[:name], content: params[:content])
-          if !params["emotion"]["name"].empty?
-            @memory.emotions << Emotion.create(name: params["emotion"]["name"])
-          end
-          @memory.save
-            redirect to "/memories/#{@memory.slug}"
-          else
-            redirect to "/memories/#{@memory.slug}/edit"
-          end
-        else
-          redirect to '/memories'
-        end
-      end
-    else
-      redirect to '/login'
-    end
-  end
-
-  delete '/memories/:slug/delete' do
-    if logged_in?
-      @memory = Memory.find_by_slug(params[:slug])
-      if @memory && @memory.user == current_user
-        @memory.delete
-      end
-      redirect to '/memories'
-    else
-      redirect to '/login'
-    end
-  end
+  
 end
