@@ -1,10 +1,10 @@
   <h2>Name of Memory: "<%= @memory.name %>"</h2>
   <h2>'<%= @memory.content %>'</h2>
   
-  <ul><h2>Memory Emotions:</h2>
-        <%@memory.emotions.each do |emotion|%>
-        <li><h3><%=emotion.name.capitalize%></h3></li>
-        <%end%>
+  <ul>
+    <%@memory.emotions.each do |emotion|%>
+      <h3><%=emotion.name.capitalize%></h3>
+    <%end%>
   </ul>
 
 <form method="post" action="/memories/<%=@memory.slug%>/delete">

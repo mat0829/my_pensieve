@@ -2,14 +2,7 @@
 <form action="/memories" method="POST">
   <p><input type="text" name="name" placeholder="Name of Memory:"></p>
   <p><textarea name="content" placeholder="Write down your memory here:" cols="50" rows="10"></textarea></p>
-  
-    <h4>Available Emotions: </h4>
-    <ul>
-    <% Emotion.all.each do |emotion| %>
-      <label><li><%= emotion.name.capitalize %></li></label>
-      <input type="checkbox" id="emotion_<%=emotion.id%>" name="figure[emotion_ids][]" value="<%= emotion.id %>">
-    <% end %>
-    </ul>
+   
   Create New Emotion: <input type="text" id="new_emotion" name="emotion[name]">
   
   <input class="btn btn-primary" type="submit" value="Bottle Memory">
