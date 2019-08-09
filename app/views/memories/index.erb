@@ -5,6 +5,9 @@
   <h1><%= memory.name %></h1>
   <p><a href="/memories/<%= memory.slug %>">More Info</a></p>
   <% end %>
+  <form method="GET" action="/memories/new">
+  <input type="submit" value="Add a Memory" />
+  </form>
   
 <% else %>
   
