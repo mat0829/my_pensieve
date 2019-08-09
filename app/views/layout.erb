@@ -16,7 +16,7 @@
   <body>
     <div class="wrapper">
       <% if logged_in?%>
-        <center><h1><%=current_user.username.capitalize %>'s Pensieve</h1></center>
+        <center><h1><%=current_user.name.capitalize%>'s Pensieve</h1></center>
       <% else %>
         <center><h1>Welcome to My Pensieve</h1></center>
       <% end %>  

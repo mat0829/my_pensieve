@@ -1,18 +1,14 @@
 <% if !@memories.empty? %>
-  <h2>~ <%= current_user.username.capitalize %>'s Memories ~</h2><br>
+  <h2>~ <%= current_user.name.capitalize%>'s Memories ~</h2><br>
   
   <% @memories.each do |memory| %>
-  <ul>
-    <li><h3>"<%= memory.name %>" <a href="/memories/<%= memory.slug %>"> Memory info:</a></h3></li>
+  <h1><%= memory.name %></h1>
+  <p><a href="/memories/<%= memory.slug %>">More Info</a></p>
   <% end %>
-  </ul>
-  <form method="GET" action="/memories/new">
-  <input type="submit" value="Add a Memory" />
-  </form> <br>
   
 <% else %>
   
-  <h2><%= current_user.username.capitalize %>, you haven't made any Memories yet</h2>
+  <h2><%= current_user.name.capitalize %>, you haven't made any Memories yet</h2>
   <form method="GET" action="/memories/new">
   <input type="submit" value="Add a Memory" />
   </form>

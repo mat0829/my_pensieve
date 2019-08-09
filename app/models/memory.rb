@@ -3,5 +3,6 @@ class Memory < ActiveRecord::Base
   extend Slugifiable::ClassMethods
   
   belongs_to :user
-  has_many :emotions
+  has_many :memory_emotions
+  has_many :emotions, through: :memory_emotions
 end

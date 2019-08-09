@@ -1,16 +1,13 @@
-<h2>Edit Memory: </h2>
+<h1>Edit Memory</h1>
 
-<form method="post" action="/memories/<%=@memory.slug%>">
-  <input id="hidden" type="hidden" name="_method" value="PATCH">
-  Memory Name: <p><input type="text" name="name" value="<%= @memory.name %>"></p>
-  <p><textarea name="content" cols="50" rows="10"><%= @memory.content %></textarea></p>
-  <ul>
-  <% @memory.emotions.each do |emotion| %>
-    <li><%= emotion.name %></li>
+<form action="/memories/<%= @memory.slug %>" method="POST">
+  <p><label>Name: </label><input type="text" name="memory[name]" id="name" value="<%= @memory.name %>"></p>
+  <p><label>Content: </label><input type="text" name="memory[content]" id="content" value="<%= @memory.content %>"></p>
+  <label>Choose an Emotion:</label>
+  <br/>
+  <% @emotions.each do |emotion| %>
+    <input type="checkbox" name="memory[emotions_ids][]" id="<%= emotion.name %>" value="<%= emotion.id %>" <%='checked' if @memory.emotions.include?(emotion) %>><%= emotion.name %></input>
   <% end %>
-  </ul>
- <label>Add New Emotion:</label>
- <input type="text" id="new_emotion" name="emotion[name]"><br></br>
- 
-  <input type="submit" value="Edit Memory">
+  <br/>
+  <input type="submit" value="Save Memory">
 </form>
