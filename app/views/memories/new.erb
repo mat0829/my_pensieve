@@ -6,11 +6,12 @@
   <label>Choose an Emotion:</label>
   <br/>
   <ul>
-  <% @emotions.uniq.each do |emotion| %>
+  <% @emotions.each do |emotion| %>
     <li><h5><input type="checkbox" name="emotions[]" id="<%= emotion.name %>" value="<%= emotion.id %>"> <%= emotion.name %></input></h5></li>
   <% end %>
   </ul>
   <br/>
+  Add an Emotion: <input type="text" id="new_emotion" name="emotion[]">
   <input type="submit" value="Bottle Memory">
 </form>
 

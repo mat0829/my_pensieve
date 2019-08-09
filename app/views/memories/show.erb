@@ -1,5 +1,4 @@
-<h2>Name of Memory:</h2>
-<h3>"<%= @memory.name %>"</h3>
+<h2>~ <%= @memory.name %> ~</h2>
 <h3>'<%= @memory.content %>'</h3>
 
 
@@ -9,6 +8,11 @@
   <li><h4><a href="/emotions/<%= emotion.slug %>"><%= emotion.name %></a></h4></li>
 <% end %>
 </ul><br>
+
+<form method="post" action="/memories/<%=@memory.slug%>/delete">
+  <input id="hidden" type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="Delete Memory">
+</form> <br>
 
 <form method="GET" action="/memories">
   <input type="submit" value="Your Memories Page" />

@@ -40,4 +40,16 @@ class MemoriesController < ApplicationController
     redirect to "memories/#{@memory.slug}"
   end
   
+  delete '/memories/:slug/delete' do
+    if logged_in?
+      @memory = Memory.find_by_slug(params[:slug])
+      if @memory && @memory.user == current_user
+        @memory.delete
+      end
+      redirect to '/memories'
+    else
+      redirect to '/login'
+    end
+  end
+  
 end
