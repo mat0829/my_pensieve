@@ -1,9 +1,15 @@
-<h1>"<%= @memory.name %>"</h1>
-<h1><%= @memory.content %></h1>
+<h2>Name of Memory:</h2>
+<h3>"<%= @memory.name %>"</h3>
+<h3>'<%= @memory.content %>'</h3>
 
-<h3>Emotions:</h3>
+
 <ul>
+  <label><h3>Emotions:</h3></label>
 <% @memory.emotions.each do |emotion| %>
-  <li><a href="/emotions/<%= emotion.slug %>"><%= emotion.name %></a></li>
+  <li><h4><a href="/emotions/<%= emotion.slug %>"><%= emotion.name %></a></h4></li>
 <% end %>
-</ul>
+</ul><br>
+
+<form method="GET" action="/memories">
+  <input type="submit" value="Your Memories Page" />
+</form>

@@ -30,7 +30,7 @@ class MemoriesController < ApplicationController
     erb :'memories/show'
   end
 
-  post '/memories/:slug' do
+  patch '/memories/:slug' do
     @memory = Memory.find_by_slug(params[:slug])
     @memory.update(params["memory"])
 

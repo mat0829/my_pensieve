@@ -1,5 +1,6 @@
-<h1><%= @emotion.name %></h1>
-<h2>Memories:</h2>
+<h1><%= @emotion.name %> memories:</h1><br>
+  <ul>
   <% @emotion.memories.each do |memory| %>
-    <li><a href="/memories/<%= memory.slug %>"><%= memory.name %></a></li>
+    <li><h2>~ <a href="/memories/<%= memory.slug %>"><%= memory.name %></a></h2></li>
   <% end %>
+  </ul>
