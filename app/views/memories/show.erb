@@ -11,8 +11,12 @@
 <form method="post" action="/memories/<%=@memory.slug%>/delete">
   <input id="hidden" type="hidden" name="_method" value="DELETE">
   <input type="submit" value="Delete Memory">
-</form> <br>
+</form><br>
 
 <form method="GET" action="/memories">
   <input type="submit" value="Your Memories Page" />
+</form><br>
+
+<form method="GET" action="/">
+  <input type="submit" value="Back to Your Homepage" />
 </form>
