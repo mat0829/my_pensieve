@@ -1,15 +1,14 @@
 class MemoriesController < ApplicationController
   
   get '/memories' do
-      @memories = Memory.all
-      erb :'memories/index'
+    @memories = Memory.all
+    erb :'memories/index'
   end
   
   get '/memories/new' do
-      @memories = Memory.all
-      @emotions = Emotion.all
-      erb :'memories/new'
-    end
+    @memories = Memory.all
+    @emotions = Emotion.all
+    erb :'memories/new'
   end
 
   post '/memories' do
@@ -27,20 +26,20 @@ class MemoriesController < ApplicationController
   end
   
   get '/memories/:slug' do
-      @memory = Memory.find_by_slug(params[:slug])
-      erb :'memories/show'
+    @memory = Memory.find_by_slug(params[:slug])
+    erb :'memories/show'
   end
 
   get '/memories/:slug/edit' do
-      @memory = Memory.find_by_slug(params[:slug])
-      @emotions = Emotion.all
-      erb :'memories/edit'
+    @memory = Memory.find_by_slug(params[:slug])
+    @emotions = Emotion.all
+    erb :'memories/edit'
   end
 
   patch '/memories/:slug' do
-      @memory = Memory.find_by_slug(params[:slug])
-      @memory.update(params["memory"])
-      redirect to "memories/#{@memory.slug}"
+    @memory = Memory.find_by_slug(params[:slug])
+    @memory.update(params["memory"])
+    redirect to "memories/#{@memory.slug}"
   end
   
   delete '/memories/:slug/delete' do
@@ -50,3 +49,4 @@ class MemoriesController < ApplicationController
     end
     redirect to '/memories'
   end
+end
