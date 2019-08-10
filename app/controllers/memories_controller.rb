@@ -15,7 +15,7 @@ class MemoriesController < ApplicationController
     if params[:name] == "" || params[:content] == ""
       redirect to 'memories/new'
     else
-      @memory = current_user.memories.create(name: params[:name], content: params[:content])
+      @memory = current_user.memories.build(name: params[:name], content: params[:content])
       @memory.emotion_ids = params[:emotions]
       if @memory.save
         redirect to "/memories/#{@memory.slug}"
