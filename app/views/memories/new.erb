@@ -1,6 +1,14 @@
 <h2>Add Memory</h2>
 <form action="/memories" method="POST">
-  <p>Title of Memory: <input type="text" name="title"></p>
-  <p>Content: <input type="text" name="content"></p>
+  <p>Title of Memory: <input type="text" name="Title"></p>
+  <p>Content: <input type="text" name="Content"></p>
+  
+  <label>Choose an Emotion(s):</label>
+  <br/>
+  <% @emotions.each do |emotion| %>
+    <input type="checkbox" name="emotions[]" id="<%= emotion.name %>" value="<%= emotion.id %>"><%= emotion.name %></input><br>
+  <% end %>
+  <br/>
+  
   <input class="btn btn-primary" type="submit" value="Bottle Memory">
 </form>
