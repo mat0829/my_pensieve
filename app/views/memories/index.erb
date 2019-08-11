@@ -4,10 +4,10 @@
   <ul>
   <% @memories.each do |memory| %>
     <div>
-      <li><h3>"<%= memory.title %>"</h3></li><br>
+      <li><h3>"<%= memory.title %>" <a href="/memories/<%= memory.id %>"> memory details:</a></h3></li>
     </div>
   <% end %>
-  </ul>
+  </ul><br>
   
   <form method="GET" action="/memories/new">
   <input type="submit" value="Add a Memory" />
@@ -15,7 +15,7 @@
   
 <% else %>
   
-  <h2><%= current_user.username %>, you haven't made any Memories yet</h2>
+  <h2><%= current_user.username.capitalize %>, you haven't made any Memories yet</h2>
   <form method="GET" action="/memories/new">
   <input type="submit" value="Add a Memory" />
   </form>

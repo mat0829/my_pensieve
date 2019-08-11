@@ -16,6 +16,8 @@ ActiveRecord::Schema.define(version: 2) do
   create_table "memories", force: :cascade do |t|
     t.string  "title"
     t.string  "content"
+    t.string  "emotion"
+    t.string  "player"
     t.integer "user_id"
   end
 

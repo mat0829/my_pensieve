@@ -1,4 +1,4 @@
-<p> Here are your memories, <%= @user.username %>
+<p> Here are your memories, <%= @user.username.capitalize %>
 <% @user.memories.each do |memory| %>
   <div>
     <%= memory.content %>
