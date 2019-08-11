@@ -1,6 +1,6 @@
 <h2>Edit Memory</h2>
 
-<form method="post" action="/memories/<%=@memory.id%>">
+<form method="post" action="/memories/<%= @memory.slug %>">
   <input id="hidden" type="hidden" name="_method" value="PATCH">
   <input type="text" name="title" value="<%= @memory.title %>">
   <input type="text" name="content" value="<%= @memory.content %>">

@@ -11,6 +11,7 @@ class MemoriesController < ApplicationController
 
   get '/memories/new' do
     if logged_in?
+      @memory = Memory.all
       @emotions = Emotion.all
       erb :'memories/new'
     else
@@ -23,10 +24,10 @@ class MemoriesController < ApplicationController
       if params[:title] == "" || params[:content] == ""
         redirect to "/memories/new"
       else
-        @memory = current_user.memories.build(title: params[:Title], content: params[:Content])
+        @memory = current_user.memories.build(title: params[:title], content: params[:content])
         @memory.emotion_ids = params[:emotions]
         if @memory.save
-          redirect to "/memories/#{@memory.id}"
+          redirect to "/memories/#{@memory.slug}"
         else
           redirect to "/memories/new"
         end
@@ -48,6 +49,7 @@ class MemoriesController < ApplicationController
   get '/memories/:slug/edit' do
     if logged_in?
       @memory = Memory.find_by_slug(params[:slug])
+      @emotions = Emotion.all
       if @memory && @memory.user == current_user
         erb :'memories/edit'
       else
@@ -58,14 +60,14 @@ class MemoriesController < ApplicationController
     end
   end
 
-  patch '/memories/:slug' do
+  post '/memories/:slug' do
     if logged_in?
       if params[:title] == "" || params[:content] == ""
         redirect to "/memories/#{params[:slug]}/edit"
       else
         @memory = Memory.find_by_slug(params[:slug])
         if @memory && @memory.user == current_user
-          if @memory.update(title: params[:title], content: params[:content])
+          if @memory.update(params[:memory])
             redirect to "/memories/#{@memory.slug}"
           else
             redirect to "/memories/#{@memory.slug}/edit"
