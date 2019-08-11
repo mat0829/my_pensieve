@@ -13,6 +13,10 @@
   <input type="submit" value="Add a Memory" />
   </form> <br>
   
+  <form method="GET" action="/">
+  <input type="submit" value="Home Page" />
+  </form>
+  
 <% else %>
   
   <h2><%= current_user.username.capitalize %>, you haven't made any Memories yet</h2>
