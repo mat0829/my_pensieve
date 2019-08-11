@@ -1,0 +1,4 @@
+<% @emotions.each do |emotion| %>
+  <h1><%= emotion.name %></h1>
+  <p><a href="/emotions/<%= emotion.slug %>">More Info</a></p>
+<% end %>
