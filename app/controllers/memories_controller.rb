@@ -1,5 +1,4 @@
 class MemoriesController < ApplicationController
-  
   get '/memories' do
     if logged_in?
       @memories = Memory.all
@@ -8,25 +7,23 @@ class MemoriesController < ApplicationController
       redirect to '/login'
     end
   end
-  
+
   get '/memories/new' do
     if logged_in?
-      @emotions = Emotion.all
       erb :'memories/new'
     else
       redirect to '/login'
     end
   end
-  
+
   post '/memories' do
     if logged_in?
-      if params[:name] == "" || params[:content] == ""
+      if params[:title] == "" || params[:content] == ""
         redirect to "/memories/new"
       else
-        @memory = current_user.memories.build(name: params[:name], content: params[:content])
-        @memory.emotion_ids = params[:emotions]
+        @memory = current_user.memories.build(title: params[:title], content: params[:content])
         if @memory.save
-          redirect to "/memories/#{@memory.slug}"
+          redirect to "/memories/#{@memory.id}"
         else
           redirect to "/memories/new"
         end
@@ -35,21 +32,20 @@ class MemoriesController < ApplicationController
       redirect to '/login'
     end
   end
-  
-  get '/memories/:slug' do
+
+  get '/memories/:id' do
     if logged_in?
-      @memory = Memory.find_by_slug(params[:slug])
+      @memory = Memory.find_by_id(params[:id])
       erb :'memories/show'
     else
       redirect to '/login'
     end
   end
 
-  get '/memories/:slug/edit' do
+  get '/memories/:id/edit' do
     if logged_in?
-      @memory = Memory.find_by_slug(params[:slug])
+      @memory = Memory.find_by_id(params[:id])
       if @memory && @memory.user == current_user
-        @emotions = Emotion.all
         erb :'memories/edit'
       else
         redirect to '/memories'
@@ -59,24 +55,30 @@ class MemoriesController < ApplicationController
     end
   end
 
-  patch '/memories/:slug' do
+  patch '/memories/:id' do
     if logged_in?
-      @memory = Memory.find_by_slug(params[:slug])
-      if @memory && @memory.user == current_user
-      end
-      if @memory.save
-        redirect to "memories/#{@memory.slug}"
+      if params[:title] == "" || params[:content] == ""
+        redirect to "/memories/#{params[:id]}/edit"
       else
-        redirect to "/memories/#{@memory.slug}/edit"
+        @memory = Memory.find_by_id(params[:id])
+        if @memory && @memory.user == current_user
+          if @memory.update(content: params[:content])
+            redirect to "/memories/#{@memory.id}"
+          else
+            redirect to "/memories/#{@memory.id}/edit"
+          end
+        else
+          redirect to '/memories'
+        end
       end
     else
       redirect to '/login'
     end
   end
-  
-  delete '/memories/:slug/delete' do
+
+  delete '/memories/:id/delete' do
     if logged_in?
-      @memory = Memory.find_by_slug(params[:slug])
+      @memory = Memory.find_by_id(params[:id])
       if @memory && @memory.user == current_user
         @memory.delete
       end

@@ -1,13 +1,8 @@
-<h1>Edit Memory</h1>
+<h2>Edit Memory</h2>
 
-<form action="/memories/<%= @memory.slug %>" method="POST">
-  <p><label>Name: </label><input type="text" name="memory[name]" id="name" value="<%= @memory.name %>"></p>
-  <p><label>Content: </label><input type="text" name="memory[content]" id="content" value="<%= @memory.content %>"></p>
-  <label>Choose an Emotion:</label>
-  <br/>
-  <% @emotions.each do |emotion| %>
-    <input type="checkbox" name="memory[emotions_ids][]" id="<%= emotion.name %>" value="<%= emotion.id %>" <%='checked' if @memory.emotions.include?(emotion) %>><%= emotion.name %></input>
-  <% end %>
-  <br/>
-  <input type="submit" value="Save Memory">
+<form method="post" action="/memories/<%=@memory.id%>">
+  <input id="hidden" type="hidden" name="_method" value="PATCH">
+  <input type="text" name="title" value="<%= @memory.title %>">
+  <input type="text" name="content" value="<%= @memory.content %>">
+  <input type="submit" value="submit">
 </form>

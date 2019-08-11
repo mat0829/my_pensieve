@@ -1,22 +1,18 @@
-<h2>~ <%= @memory.name %> ~</h2>
-<h3>'<%= @memory.content %>'</h3>
-
+<h4>Your Added Memory:</h4>
 <ul>
-  <label><h3>Emotions:</h3></label>
-<% @memory.emotions.each do |emotion| %>
-  <li><h4><a href="/emotions/<%= emotion.slug %>"><%= emotion.name %></a></h4></li>
-<% end %>
-</ul><br>
+  <li><%= @memory.title %></li>
+  <li><%= @memory.content %></li>
+</ul>
 
-<form method="post" action="/memories/<%=@memory.slug%>/delete">
+<form method="post" action="/memories/<%=@memory.id%>/delete">
   <input id="hidden" type="hidden" name="_method" value="DELETE">
   <input type="submit" value="Delete Memory">
-</form><br>
+</form> <br>
+
+<form method="GET" action="/memories/<%=@memory.id%>/edit">
+  <input type="submit" value="Edit Memory" />
+</form> <br>
 
 <form method="GET" action="/memories">
   <input type="submit" value="Your Memories Page" />
-</form><br>
-
-<form method="GET" action="/">
-  <input type="submit" value="Back to Your Homepage" />
 </form>
