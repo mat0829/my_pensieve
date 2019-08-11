@@ -60,14 +60,14 @@ class MemoriesController < ApplicationController
     end
   end
 
-  post '/memories/:slug' do
+  patch '/memories/:slug' do
     if logged_in?
       if params[:title] == "" || params[:content] == ""
         redirect to "/memories/#{params[:slug]}/edit"
       else
         @memory = Memory.find_by_slug(params[:slug])
         if @memory && @memory.user == current_user
-          if @memory.update(params[:memory])
+          if @memory.update(title: params[:title], content: params[:content])
             redirect to "/memories/#{@memory.slug}"
           else
             redirect to "/memories/#{@memory.slug}/edit"

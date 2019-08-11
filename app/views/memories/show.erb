@@ -7,14 +7,14 @@
 <h3>Emotions:</h3>
 <% @memory.emotions.each do |emotion| %>
   <li><a href="/emotions/<%= emotion.slug %>"><%= emotion.name %></a></li>
-<% end %>
+<% end %><br>
 
 <form method="post" action="/memories/<%=@memory.slug%>/delete">
   <input id="hidden" type="hidden" name="_method" value="DELETE">
   <input type="submit" value="Delete Memory">
 </form> <br>
 
-<form method="GET" action="/memories/<%=@memory.id%>/edit">
+<form method="GET" action="/memories/<%=@memory.slug%>/edit">
   <input type="submit" value="Edit Memory" />
 </form> <br>
 
