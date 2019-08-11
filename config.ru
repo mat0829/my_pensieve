@@ -5,6 +5,7 @@ if ActiveRecord::Migrator.needs_migration?
 end
 
 use Rack::MethodOverride
+use EmotionsController
 use MemoriesController
 use UsersController
 run ApplicationController

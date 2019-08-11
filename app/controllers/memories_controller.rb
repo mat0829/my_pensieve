@@ -1,4 +1,5 @@
 class MemoriesController < ApplicationController
+  
   get '/memories' do
     if logged_in?
       @memories = Memory.all
@@ -18,10 +19,10 @@ class MemoriesController < ApplicationController
 
   post '/memories' do
     if logged_in?
-      if params[:title] == "" || params[:content] == "" || params[:emotion] == "" || params[:player] == ""
+      if params[:title] == "" || params[:content] == ""
         redirect to "/memories/new"
       else
-        @memory = current_user.memories.build(title: params[:title], content: params[:content], emotion: params[:emotion], player: params[:player])
+        @memory = current_user.memories.build(title: params[:title], content: params[:content])
         if @memory.save
           redirect to "/memories/#{@memory.id}"
         else
@@ -57,12 +58,12 @@ class MemoriesController < ApplicationController
 
   patch '/memories/:id' do
     if logged_in?
-      if params[:title] == "" || params[:content] == "" || params[:emotion] == "" || params[:player] == ""
+      if params[:title] == "" || params[:content] == ""
         redirect to "/memories/#{params[:id]}/edit"
       else
         @memory = Memory.find_by_id(params[:id])
         if @memory && @memory.user == current_user
-          if @memory.update(title: params[:title], content: params[:content], emotion: params[:emotion], player: params[:player])
+          if @memory.update(title: params[:title], content: params[:content])
             redirect to "/memories/#{@memory.id}"
           else
             redirect to "/memories/#{@memory.id}/edit"

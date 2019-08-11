@@ -2,8 +2,6 @@
 <ul>
   <li><h2>"<%= @memory.title %>"</h2></li>
   <li><p><%= @memory.content %></li></p>
-  <li>Emotion: <h3><%= @memory.emotion %></h3></li>
-  <li>People in the Memory: <h3><%= @memory.player %></h3></li>
 </ul>
 
 <form method="post" action="/memories/<%=@memory.id%>/delete">
