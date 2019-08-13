@@ -2,7 +2,7 @@ class MemoriesController < ApplicationController
   
   get '/memories' do
     if logged_in?
-      @memories = Memory.all
+      @memories = current_user.memories
       erb :'memories/index'
     else
       redirect to '/login'
@@ -68,6 +68,11 @@ class MemoriesController < ApplicationController
         @memory = Memory.find_by_slug(params[:slug])
         if @memory && @memory.user == current_user
           if @memory.update(title: params[:title], content: params[:content])
+            @memory.emotions = []
+            params[:memory][:emotions_ids].each do |emotion_id|
+              @memory.emotions << Emotion.find(emotion_id)
+              @memory.save
+            end
             redirect to "/memories/#{@memory.slug}"
           else
             redirect to "/memories/#{@memory.slug}/edit"
