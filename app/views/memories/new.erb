@@ -7,7 +7,6 @@
   <% @emotions.each do |emotion| %>
     <input type="checkbox" name="emotions[]" id="<%= emotion.name %>" value="<%= emotion.id %>"> <%= emotion.name %></input><br>
   <% end %>
-  <br/>
-    
+  
   <input class="btn btn-primary" type="submit" value="Bottle Memory">
 </form>
