@@ -12,12 +12,7 @@ class MemoriesController < ApplicationController
   get '/memories/new' do
     if logged_in?
       @emotions = Emotion.all
-      @players = []
-      current_user.memories.map do |memory|
-        memory.players.map do |player|
-          @players << player.name unless @players.include?(player.name)
-        end
-      end
+      @players = Player.all
       erb :'memories/new'
     else
       redirect to '/login'
@@ -29,7 +24,6 @@ class MemoriesController < ApplicationController
       if params[:title] == "" || params[:content] == ""
         redirect to "/memories/new"
       else
-        binding.pry
         @memory = current_user.memories.build(title: params[:title], content: params[:content])
         @memory.emotion_ids = params[:emotions]
         @memory.player_ids = params[:players]
