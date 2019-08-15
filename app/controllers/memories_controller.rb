@@ -25,6 +25,9 @@ class MemoriesController < ApplicationController
       else
         @memory = current_user.memories.build(title: params[:title], content: params[:content])
         @memory.emotion_ids = params[:emotions]
+        if !params["emotion"]["name"].empty?
+          @memory.emotions << Emotion.find_or_create_by(name: params["emotion"]["name"].capitalize)
+        end
         if @memory.save
           redirect to "/memories/#{@memory.slug}"
         else
