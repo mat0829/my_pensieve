@@ -8,3 +8,5 @@ Emotion.find_or_create_by(name: "Anger")
 Emotion.find_or_create_by(name: "Anticipation")
 Emotion.find_or_create_by(name: "Love")
 Emotion.find_or_create_by(name: "Remorse")
+
+Player.find_or_create_by(name: "Me, Myself, and I")

@@ -10,5 +10,10 @@
     <input type="checkbox" name="memory[emotions_ids][]" id="<%= emotion.name %>" value="<%= emotion.id %>" <%='checked' if @memory.emotions.include?(emotion) %>><%= emotion.name %></input><br>
   <% end %><br>
   
+  <label><h3>Choose a Person(s):</h3></label>
+  <% @players.each do |player| %>
+    <input type="checkbox" name="memory[players_ids][]" id="<%= player.name %>" value="<%= player.id %>" <%='checked' if @memory.players.include?(player) %>><%= player.name %></input><br>
+  <% end %><br>
+  
   <input type="submit" value="submit">
 </form>

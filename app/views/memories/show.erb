@@ -8,6 +8,11 @@
   <li><a href="/emotions/<%= emotion.slug %>"><%= emotion.name %></a></li>
 <% end %><br>
 
+<h3>People:</h3>
+<% @memory.players.each do |player| %>
+  <li><a href="/players/<%= player.slug %>"><%= player.name %></a></li>
+<% end %><br>
+
 <form method="post" action="/memories/<%=@memory.slug%>/delete">
   <input id="hidden" type="hidden" name="_method" value="DELETE">
   <input type="submit" value="Delete Memory">

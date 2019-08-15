@@ -12,6 +12,7 @@ class MemoriesController < ApplicationController
   get '/memories/new' do
     if logged_in?
       @emotions = Emotion.all
+      @players = Player.all
       erb :'memories/new'
     else
       redirect to '/login'
@@ -25,8 +26,12 @@ class MemoriesController < ApplicationController
       else
         @memory = current_user.memories.build(title: params[:title], content: params[:content])
         @memory.emotion_ids = params[:emotions]
+        @memory.player_ids = params[:players]
         if !params["emotion"]["name"].empty?
           @memory.emotions << Emotion.find_or_create_by(name: params["emotion"]["name"].capitalize)
+        end
+        if !params["player"]["name"].empty?
+          @memory.players << Player.find_or_create_by(name: params["player"]["name"].capitalize)
         end
         if @memory.save
           redirect to "/memories/#{@memory.slug}"
@@ -52,6 +57,7 @@ class MemoriesController < ApplicationController
     if logged_in?
       @memory = Memory.find_by_slug(params[:slug])
       @emotions = Emotion.all
+      @players = Player.all
       if @memory && @memory.user == current_user
         erb :'memories/edit'
       else
@@ -71,8 +77,12 @@ class MemoriesController < ApplicationController
         if @memory && @memory.user == current_user
           if @memory.update(title: params[:title], content: params[:content])
             @memory.emotions = []
+            @memory.players = []
             params[:memory][:emotions_ids].each do |emotion_id|
               @memory.emotions << Emotion.find(emotion_id)
+            end
+            params[:memory][:players_ids].each do |player_id|
+              @memory.players << Player.find(player_id)
               @memory.save
             end
             redirect to "/memories/#{@memory.slug}"

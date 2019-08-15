@@ -1,0 +1,4 @@
+<% @players.each do |player| %>
+  <h1><%= player.name %></h1>
+  <p><a href="/players/<%= player.slug %>">More Info</a></p>
+<% end %>
