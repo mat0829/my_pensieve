@@ -12,7 +12,7 @@
   
   <label><h3>Choose a Person(s):</h3></label>
   <% @players.each do |player| %>
-  <input type="checkbox" name="players[]" id="<%= player.name %>" value="<%= player.id %>"> <%= player.name %></input><br>
+  <input type="checkbox" name="players[]" id="<%= player %>" value="<%= player %>"> <%= player %></input><br>
   <% end %><br>
   
   <h4>Add a New Person(s): <input type="text" id="new_player" name="player[name]"></h4><br>
