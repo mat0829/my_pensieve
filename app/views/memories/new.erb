@@ -5,14 +5,14 @@
   
   <label><h3>Choose an Emotion(s):</h3></label>
   <% @emotions.each do |emotion| %>
-    <input type="checkbox" name="emotions[]" id="<%= emotion.name %>" value="<%= emotion.id %>"> <%= emotion.name %></input><br>
+    <li><input type="checkbox" name="emotions[]" id="<%= emotion.name %>" value="<%= emotion.id %>"> <%= emotion.name %></input></li>
   <% end %><br>
   
   <h4>Create a New Emotion: <input type="text" id="new_emotion" name="emotion[name]"></h4><br>
   
   <label><h3>Choose a Person(s):</h3></label>
   <% @players.each do |player| %>
-  <input type="checkbox" name="players[]" id="<%= player.name %>" value="<%= player.id %>"> <%= player.name %></input><br>
+  <li><input type="checkbox" name="players[]" id="<%= player.name %>" value="<%= player.id %>"> <%= player.name %></input></li>
   <% end %><br>
   
   <h4>Add a New Person(s): <input type="text" id="new_player" name="player[name]"></h4><br>

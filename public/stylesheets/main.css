@@ -19,6 +19,7 @@
   body {
     background: url(https://oi27.photobucket.com/albums/c180/LVSpiritSeeker/pexels-photo-220067.jpeg) center no-repeat;
     background-size: cover;
+    background-attachment: fixed;
     color: white;
     font-family: 'Irish Grover', cursive;
 
@@ -36,10 +37,14 @@
     padding: 2.25%; /* 18px / 800px */
     width: 85%;
   }
+  
+  li { 
+    font-family: 'Risque', cursive;
+  }
 
   h1 {
     font-size: 48px;
-    line-height: 54px;
+    line-height: 54px; 
     color: white;
     font-family: 'Henny Penny', cursive;
   }
@@ -52,7 +57,7 @@
   }
 
   h3 {
-    font-size: 18px;
+    font-size: 25px;
     line-height: 36px;
   }
 
