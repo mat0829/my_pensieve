@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=Henny+Penny&display=swap');
+
+@import url('https://fonts.googleapis.com/css?family=Aref+Ruqaa|Artifika|Balthazar|Bentham|Cagliostro|Cantora+One|Capriola|Cinzel|Cormorant+Upright|Cutive|Exo|Fresca|Gabriela|Headland+One|IM+Fell+DW+Pica|IM+Fell+English|Irish+Grover|Jua|Kurale|Laila|Petrona|Rambla|Risque|Tangerine&display=swap');
+
 @media screen {
   /* --- Reset Styles --- */
   * {
@@ -13,14 +17,17 @@
 
   /* --- Welcome Page Styles --- */
   body {
-    background-color: black;
-    color: #333;
-    font-family: Sans-Serif;
+    background: url(https://oi27.photobucket.com/albums/c180/LVSpiritSeeker/pexels-photo-220067.jpeg) center no-repeat;
+    background-size: cover;
+    color: white;
+    font-family: 'Irish Grover', cursive;
+
     line-height: 18px;
   }
 
   .wrapper {
-    background: #fff;
+    background: url(https://cdnb.artstation.com/p/assets/images/images/006/086/863/large/ognyan-zahariev-pensieve-05.jpg?1495969661) no-repeat;
+    background-size: cover;
     -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
     -webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
     box-shadow: 0 0 10px rgba(0,0,0,.3);
@@ -31,8 +38,10 @@
   }
 
   h1 {
-    font-size: 36px;
+    font-size: 48px;
     line-height: 54px;
+    color: white;
+    font-family: 'Henny Penny', cursive;
   }
 
   h2 {
