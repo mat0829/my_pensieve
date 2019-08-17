@@ -38,6 +38,13 @@
     width: 85%;
   }
   
+  input[type=submit] {
+    background-color: black;
+    font-family: 'Risque', cursive;
+    color: white;
+    padding: 5px 5px;
+  }
+  
   a:link {
   color: red;
 }
