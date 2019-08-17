@@ -1,3 +1,6 @@
+<body style="background: url(https://cdn.pixabay.com/photo/2018/08/25/11/20/abstract-3629844_960_720.jpg) center no-repeat;
+    background-size: cover;background-attachment: fixed;">
+
 <h1>Memories:</h2>
   <% @emotion.each do |memory| %>
     <li><a href="/memories/<%= memory.slug %>"><%= memory.title %></a></li><br>
