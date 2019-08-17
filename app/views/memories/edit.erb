@@ -2,17 +2,17 @@
 
 <form method="post" action="/memories/<%= @memory.slug %>">
   <input id="hidden" type="hidden" name="_method" value="PATCH">
-  <h3>Title of Memory: <input type="text" name="title" value="<%= @memory.title %>"></h3>
-  <h3>Content: <input type="text" name="content" value="<%= @memory.content %>"></h3>
+  <h3>Title of Memory: <input type="text" name="title" value="<%= @memory.title %>"></h3><br>
+  <h3><textarea name="content" cols="75" rows="10"><%= @memory.content %></textarea></h3>
   
   <label><h3>Choose an Emotion(s):</h3></label>
   <% @emotions.each do |emotion| %>
-    <input type="checkbox" name="memory[emotions_ids][]" id="<%= emotion.name %>" value="<%= emotion.id %>" <%='checked' if @memory.emotions.include?(emotion) %>><%= emotion.name %></input><br>
+    <li><input type="checkbox" name="memory[emotions_ids][]" id="<%= emotion.name %>" value="<%= emotion.id %>" <%='checked' if @memory.emotions.include?(emotion) %>> <%= emotion.name %></input></li>
   <% end %><br>
   
   <label><h3>Choose a Person(s):</h3></label>
   <% @players.each do |player| %>
-    <input type="checkbox" name="memory[players_ids][]" id="<%= player.name %>" value="<%= player.id %>" <%='checked' if @memory.players.include?(player) %>><%= player.name %></input><br>
+    <li><input type="checkbox" name="memory[players_ids][]" id="<%= player.name %>" value="<%= player.id %>" <%='checked' if @memory.players.include?(player) %>> <%= player.name %></input></li>
   <% end %><br>
   
   <input type="submit" value="submit">

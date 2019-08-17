@@ -1,7 +1,7 @@
 <ul>
-  <li><h3>Title of Memory: </h3><h2>"<%= @memory.title %>"</h2></li>
-  <li><h3>Content of Memory: </h3><h2><%= @memory.content %></h2></li>
-</ul>
+  <li><h2>"<%= @memory.title %>"</h2></li>
+  <li><h3><%= @memory.content %></h3></li>
+</ul><br>
 
 <h3>Emotions:</h3>
 <% @memory.emotions.each do |emotion| %>
