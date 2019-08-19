@@ -2,6 +2,6 @@
     background-size: cover;background-attachment: fixed;">
 
 <% @emotions.each do |emotion| %>
-  <h1><%= emotion.name %></h1>
+  <h1><%= emotion.name %></h1><br>
   <p><a href="/emotions/<%= emotion.slug %>">More Info</a></p>
 <% end %>
