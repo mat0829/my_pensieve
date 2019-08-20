@@ -1,7 +1,7 @@
 <body style="background: url(https://cdn.pixabay.com/photo/2016/06/01/11/54/background-1428868_960_720.jpg) center no-repeat;
     background-size: cover;background-attachment: fixed;">
-<h1>Memory Emotions:</h1>
 
+<h1>Memory Emotions:</h1>
 <% @emotions.each do |emotion| %>
   <h3>"<%= emotion.name %>" <a href="/emotions/<%= emotion.slug %>">More Info</a></h3><br>
 <% end %>
