@@ -1,4 +1,4 @@
+<h1>People from Memories:</h1><br>
 <% @players.each do |player| %>
-  <h1><%= player.name %></h1>
-  <p><a href="/players/<%= player.slug %>">More Info</a></p>
+  <li><h3>"<%= player.name %>" <a href="/players/<%= player.slug %>">More Info</a></h3></li><br>
 <% end %>
