@@ -2,3 +2,11 @@
 <% @players.each do |player| %>
   <li><h3>"<%= player.name %>" <a href="/players/<%= player.slug %>">More Info</a></h3></li><br>
 <% end %>
+
+<form method="GET" action="/memories">
+  <input type="submit" value="Your Memories Page" />
+</form> <br>
+
+<form method="GET" action="/">
+  <input type="submit" value="Home Page" />
+</form>

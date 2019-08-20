@@ -7,7 +7,7 @@
   <ul>
   <% @memories.each do |memory| %>
     <div>
-      <li><h3>"<%= memory.title %>" <a href="/memories/<%= memory.slug %>"> memory details:</a></h3></li>
+      <h3>"<%= memory.title %>" <a href="/memories/<%= memory.slug %>"> memory details:</a></h3>
     </div>
   <% end %>
   </ul><br>
