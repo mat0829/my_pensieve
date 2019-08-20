@@ -1,13 +1,13 @@
 <nav>
   <% if logged_in? %>
-    <h3>Welcome, <%=current_user.username.capitalize %>!</h3><br>
+    <h1>Welcome, <%=current_user.username.capitalize %>!</h1><br>
     <a href="/memories/new"> Add Memory </a> |
     <a href="/memories"> Your Memories Page </a> |
     <a href="/logout"> Log Out </a>
     
 
   <% else %>
-    <p>Please Sign in or Sign up below:</p>
+    <h1>Please Sign in or Sign up below:</h1><br>
     <a href="/signup">Create User</a> |
     <a href="/login"> Sign In </a>
   <%end %>
