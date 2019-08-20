@@ -88,6 +88,8 @@ a:active {
   h3 {
     font-size: 25px;
     line-height: 36px;
+    color: white;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   }
 
   p {
@@ -95,6 +97,7 @@ a:active {
     font-size: 24px;
     line-height: 36px;
     margin-bottom: 16px;
+    border-bottom: 2px solid #ccc;
   }
 
   .main {
