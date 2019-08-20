@@ -2,3 +2,11 @@
   <% @player.memories.each do |memory| %>
     <li><a href="/memories/<%= memory.slug %>"><%= memory.title %></a></li><br>
   <% end %>
+  
+  <form method="GET" action="/players">
+  <input type="submit" value="Your People Page" />
+</form> <br>
+
+<form method="GET" action="/">
+  <input type="submit" value="Home Page" />
+</form>
