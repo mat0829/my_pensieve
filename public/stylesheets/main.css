@@ -46,7 +46,10 @@
   }
   
   a:link {
-  color: red;
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  font-size: 25px;
+  
 }
 
 /* visited link */
@@ -56,12 +59,13 @@ a:visited {
 
 /* mouse over link */
 a:hover {
-  color: blue;
+  color: #7FFF00;
 }
 
 /* selected link */
 a:active {
-  color: yellow;
+  
+  color: #6600ff;
 }
   
   li { 
@@ -75,7 +79,6 @@ a:active {
     color: #0000FF;
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
     font-family: 'Henny Penny', cursive;
-    text-decoration-line: underline; 
   }
 
   h2 {
@@ -86,13 +89,14 @@ a:active {
   }
 
   h3 {
-    font-size: 25px;
+    font-size: 35px;
     line-height: 36px;
     color: white;
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   }
 
   p {
+    border-top: 2px solid #ccc;
     text-indent: 7%;
     font-size: 24px;
     line-height: 36px;

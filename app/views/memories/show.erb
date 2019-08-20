@@ -5,12 +5,12 @@
   <li><p><%= @memory.content %></p></li>
 </ul>
 
-<h3>Emotions:</h3>
+<h3>Emotions:</h3><br>
 <% @memory.emotions.each do |emotion| %>
   <li><a href="/emotions/<%= emotion.slug %>"><%= emotion.name %></a></li>
 <% end %><br>
 
-<h3>People:</h3>
+<h3>People:</h3><br>
 <% @memory.players.each do |player| %>
   <li><a href="/players/<%= player.slug %>"><%= player.name %></a></li>
 <% end %><br>
