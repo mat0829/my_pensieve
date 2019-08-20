@@ -12,7 +12,7 @@ class PlayersController < ApplicationController
   get '/players/:slug' do
     if logged_in?
       @player = Player.find_by_slug(params[:slug])
-      @player = @player.memories.where(user_id: current_user.id)
+      @player.memories = @player.memories.where(user_id: current_user.id)
       erb :'players/show'
     else
       redirect_to '/login'
