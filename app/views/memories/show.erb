@@ -7,12 +7,12 @@
 
 <h3>Emotions:</h3><br>
 <% @memory.emotions.each do |emotion| %>
-  <li><a href="/emotions/<%= emotion.slug %>"><%= emotion.name %></a></li>
+  <li><a href="/emotions/<%= emotion.slug %>"><%= emotion.name %></a></li><br>
 <% end %><br>
 
 <h3>People:</h3><br>
 <% @memory.players.each do |player| %>
-  <li><a href="/players/<%= player.slug %>"><%= player.name %></a></li>
+  <li><a href="/players/<%= player.slug %>"><%= player.name %></a></li><br>
 <% end %><br>
 
 <form method="post" action="/memories/<%=@memory.slug%>/delete">
