@@ -1,9 +1,9 @@
 <body style="background: url(https://cdn.pixabay.com/photo/2016/05/10/21/50/meditation-1384758_960_720.jpg) center no-repeat;
     background-size: cover;background-attachment: fixed;">
 <ul>
-  <h2>"<%= @memory.title %>"</h2>
-  <h3><%= @memory.content %></h3>
-</ul><br>
+  <h1>"<%= @memory.title %>"</h1><br>
+  <p><%= @memory.content %></p>
+</ul>
 
 <h3>Emotions:</h3>
 <% @memory.emotions.each do |emotion| %>
