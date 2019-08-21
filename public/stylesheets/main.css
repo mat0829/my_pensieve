@@ -1,6 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Henny+Penny&display=swap');
-
-@import url('https://fonts.googleapis.com/css?family=Aref+Ruqaa|Artifika|Balthazar|Bentham|Cagliostro|Cantora+One|Capriola|Cinzel|Cormorant+Upright|Cutive|Exo|Fresca|Gabriela|Headland+One|IM+Fell+DW+Pica|IM+Fell+English|Irish+Grover|Jua|Kurale|Laila|Petrona|Rambla|Risque|Tangerine&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Irish+Grover|Risque|Henny+Penny&display=swap');
 
 @media screen {
   /* --- Reset Styles --- */
@@ -103,8 +101,8 @@ a:active {
     line-height: 36px;
     margin-bottom: 16px;
     border-bottom: 2px solid #ccc;
-    color: #8A2BE2;
-    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+    color: white;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   }
 
   .main {
