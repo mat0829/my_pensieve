@@ -101,11 +101,14 @@ a:active {
     border-top: 2px solid #ccc;
     text-indent: 7%;
     font-size: 30px;
+    font-weight: bold;
     line-height: 36px;
     margin-bottom: 16px;
     border-bottom: 2px solid #ccc;
-    color: white;
-    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    /*color: white;*/
+    /*text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;*/
+    color: #8A2BE2;
+    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
   }
 
   .main {
