@@ -102,6 +102,8 @@ a:active {
   }
 
   p {
+    padding-top: 5px;
+    padding-bottom: 5px;
     font-family: 'Risque', cursive;
     border-top: 2px solid #ccc;
     text-indent: 7%;
