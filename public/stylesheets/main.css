@@ -92,7 +92,7 @@ a:active {
   h3 {
     font-size: 35px;
     line-height: 36px;
-    color: white;
+    color: #F8F8FF;
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   }
   
@@ -110,10 +110,8 @@ a:active {
     line-height: 36px;
     margin-bottom: 16px;
     border-bottom: 2px solid #ccc;
-    /*color: white;*/
-    /*text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;*/
-    color: #8A2BE2;
-    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+    color: #F8F8FF;
+    text-shadow: -1px 0 purple, 0 1px purple, 1px 0 purple, 0 -1px purple;
   }
 
   .main {
