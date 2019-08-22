@@ -47,7 +47,7 @@
   color: yellow;
   text-shadow:0 0 5px #fff;
   font-size: 25px;
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 /* visited link */
