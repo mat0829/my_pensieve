@@ -8,7 +8,7 @@ This Ruby Gem provides an fun way to record Memories with Emotions and People al
 2. Run `bundle install` to install gems (If you don't have bundler, first run `gem install bundler`)
 3. Set up the database with `rake db:migrate`.
 4. Run 'rake db:seed' to give your base Emotions. 
-5. Run `shotgun` to run the app and copy and paste the created url into a new window. 
+5. Run `shotgun` to run the app and copy and paste the created url from the terminal into a new window. 
 
 ## Contributing
 
@@ -17,7 +17,3 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/'mat08
 ## License
 
 The gem is available as open source under the terms of the [MIT License](https://github.com/mat0829/my_pensieve/blob/master/LICENSE).
-
-## Code of Conduct
-
-Everyone interacting in the InvaderZim project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/'mat0829'/invader_zim/blob/master/CODE_OF_CONDUCT.md).
