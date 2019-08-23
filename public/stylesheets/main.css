@@ -104,6 +104,7 @@ a:active {
   }
 
   p {
+    white-space: pre-wrap;
     padding-top: 5px;
     padding-bottom: 5px;
     font-family: 'Risque', cursive;
