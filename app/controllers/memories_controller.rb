@@ -12,7 +12,7 @@ class MemoriesController < ApplicationController
   get '/memories/new' do
     if logged_in?
       @emotions = current_user.emotions.uniq
-      @players = Player.all
+      @players = current_user.players.uniq
       erb :'memories/new'
     else
       redirect to '/login'
@@ -56,8 +56,8 @@ class MemoriesController < ApplicationController
   get '/memories/:slug/edit' do
     if logged_in?
       @memory = Memory.find_by_slug(params[:slug])
-      @emotions = Emotion.all
-      @players = Player.all
+      @emotions = current_user.emotions.uniq
+      @players = current_user.players.uniq
       if @memory && @memory.user == current_user
         erb :'memories/edit'
       else

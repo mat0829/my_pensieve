@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   has_secure_password
   has_many :memories
   has_many :emotions, through: :memories
+  has_many :players, through: :memories
   validates :username, :email, :password, presence: true
   validates :email, :username, uniqueness: true
   validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }

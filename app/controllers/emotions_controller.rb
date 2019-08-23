@@ -2,7 +2,7 @@ class EmotionsController < ApplicationController
   
   get '/emotions' do
    if logged_in?
-    @emotions = current_user.emotions
+    @emotions = current_user.emotions.uniq
     erb :'/emotions/index'
     else
       redirect_to '/login'

@@ -2,7 +2,7 @@ class PlayersController < ApplicationController
   
   get '/players' do
    if logged_in?
-    @players = Player.all
+    @players = current_user.players.uniq
     erb :'/players/index'
     else
       redirect_to '/login'
