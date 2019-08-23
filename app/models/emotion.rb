@@ -1,6 +1,7 @@
 class Emotion < ActiveRecord::Base
   has_many :memory_emotions
   has_many :memories, through: :memory_emotions
+  has_many :users, through: :memories
   
   def slug
       self.name.gsub(" ", "-").downcase

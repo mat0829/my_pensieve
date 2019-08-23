@@ -2,7 +2,7 @@
     background-size: cover;background-attachment: fixed;">
 
 <h1>Memory Emotions:</h1>
-<% @emotions.each do |emotion| %>
+<% @emotions.uniq.each do |emotion| %>
   <h3>"<%= emotion.name %>" <a href="/emotions/<%= emotion.slug %>">More Info</a></h3><br>
 <% end %>
 
