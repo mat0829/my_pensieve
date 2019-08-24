@@ -78,8 +78,10 @@ class MemoriesController < ApplicationController
           if @memory.update(title: params[:title], content: params[:content])
             @memory.emotions = []
             @memory.players = []
-            params[:memory][:emotions_ids].each do |emotion_id|
-              @memory.emotions << Emotion.find(emotion_id)
+            if params[:memory][:emotions_ids] != nil
+              params[:memory][:emotions_ids].each do |emotion_id|
+                @memory.emotions << Emotion.find(emotion_id)
+              end
             end
             params[:memory][:players_ids].each do |player_id|
               @memory.players << Player.find(player_id)
