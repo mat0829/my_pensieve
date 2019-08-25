@@ -78,15 +78,18 @@ class MemoriesController < ApplicationController
           if @memory.update(title: params[:title], content: params[:content])
             @memory.emotions = []
             @memory.players = []
-            if params[:memory][:emotions_ids] != nil
-              params[:memory][:emotions_ids].each do |emotion_id|
-                @memory.emotions << Emotion.find(emotion_id)
+            if params[:memory] !=  nil
+              if params[:memory][:emotions_ids] != nil
+                params[:memory][:emotions_ids].each do |emotion_id|
+                  @memory.emotions << Emotion.find(emotion_id)
+                  @memory.save
+                end
               end
-            end
-            if params[:memory][:players_ids] != nil
-              params[:memory][:players_ids].each do |player_id|
-                @memory.players << Player.find(player_id)
-                @memory.save
+              if params[:memory][:players_ids] != nil
+                params[:memory][:players_ids].each do |player_id|
+                  @memory.players << Player.find(player_id)
+                  @memory.save
+                end
               end
             end
             redirect to "/memories/#{@memory.slug}"
