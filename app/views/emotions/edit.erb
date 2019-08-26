@@ -1,0 +1,13 @@
+<body style="background: url(https://cdn.pixabay.com/photo/2016/06/01/11/54/background-1428868_960_720.jpg) center no-repeat;
+    background-size: cover;background-attachment: fixed;">
+<!–– Background Artist/Creator: TheDigitalArtist from Pixabay.com ––>
+
+<h1>Edit Emotion</h1>
+
+
+<form method="post" action="/emotions/<%= @emotion.slug %>">
+  <input id="hidden" type="hidden" name="_method" value="PATCH">
+  <h3>Name of Emotion: <input type="text" name="name" value="<%= @emotion.name %>"></h3><br>
+  
+  <input type="submit" value="Bottle Your Emotion">
+</form><br>
