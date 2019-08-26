@@ -18,4 +18,14 @@ class EmotionsController < ApplicationController
       redirect_to '/login'
     end
   end
+  
+  delete '/emotions/:slug/delete' do
+    if logged_in?
+      @emotion = Emotion.find_by_slug(params[:slug])
+        @emotion.delete
+      redirect to '/emotions'
+    else
+      redirect to '/login'
+    end
+  end
 end
