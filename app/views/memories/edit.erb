@@ -19,5 +19,13 @@
     <li><input type="checkbox" name="memory[players_ids][]" id="<%= player.name %>" value="<%= player.id %>" <%='checked' if @memory.players.include?(player) %>> <%= player.name %></input></li>
   <% end %><br>
   
-  <input type="submit" value="submit">
+  <input type="submit" value="Bottle Your Memory">
+</form><br>
+
+<form method="GET" action="/memories">
+  <input type="submit" value="Memories Page" />
+</form> <br>
+
+<form method="GET" action="/">
+  <input type="submit" value="Home Page" />
 </form>
