@@ -19,4 +19,14 @@ class PlayersController < ApplicationController
     end
   end
   
+  delete '/players/:slug/delete' do
+    if logged_in?
+      @player = Player.find_by_slug(params[:slug])
+        @player.delete
+      redirect to '/players'
+    else
+      redirect to '/login'
+    end
+  end
+  
 end
