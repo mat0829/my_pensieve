@@ -19,6 +19,33 @@ class PlayersController < ApplicationController
     end
   end
   
+  get '/players/:slug/edit' do
+    if logged_in?
+      if params[:name] == ""
+        redirect to "/players/#{params[:slug]}/edit"
+      else
+      @player = Player.find_by_slug(params[:slug])
+      erb :'players/edit'
+      end
+    else
+      redirect to '/login'
+    end
+  end
+  
+  patch '/players/:slug' do
+    if logged_in?
+      if params[:name] == ""
+        redirect to "/players/#{params[:slug]}/edit"
+      else
+        @player = Player.find_by_slug(params[:slug])
+        @player.update(name: params[:name])
+        redirect to "/players/#{@player.slug}"
+      end
+    else
+      redirect to '/login'
+    end
+  end
+  
   delete '/players/:slug/delete' do
     if logged_in?
       @player = Player.find_by_slug(params[:slug])

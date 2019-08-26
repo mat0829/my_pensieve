@@ -1,0 +1,12 @@
+<body style="background: url(https://img.wallpapersafari.com/desktop/1366/768/25/0/DV1YEw.jpg) center no-repeat;
+    background-size: cover;background-attachment: fixed;">
+<!–– Background from wallpapersafari.com ––>
+
+<h1>Edit Person</h1>
+
+<form method="post" action="/players/<%= @player.slug %>">
+  <input id="hidden" type="hidden" name="_method" value="PATCH">
+  <h3>Name of Person: <input type="text" name="name" value="<%= @player.name %>"></h3><br>
+  
+  <input type="submit" value="Save Person">
+</form><br>

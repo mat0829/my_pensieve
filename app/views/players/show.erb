@@ -7,6 +7,10 @@
     <li><a href="/memories/<%= memory.slug %>"><%= memory.title %></a></li><br>
   <% end %>
   
+<form method="GET" action="/players/<%= @player.slug %>/edit">
+  <input type="submit" value="Edit Person" />
+</form> <br>
+  
 <form method="post" action="/players/<%= @player.slug %>/delete">
   <input id="hidden" type="hidden" name="_method" value="DELETE">
   <input type="submit" value="Delete Person">
