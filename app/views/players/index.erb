@@ -4,7 +4,7 @@
 
 <h1>People from Memories:</h1><br>
 <% @players.each do |player| %>
-  <h3>"<%= player.name %>" <a href="/players/<%= player.slug %>">More Info</a></h3><br>
+  <h3>"<%= player.name.capitalize %>" <a href="/players/<%= player.slug %>">More Info</a></h3><br>
 <% end %>
 
 <form method="GET" action="/memories">

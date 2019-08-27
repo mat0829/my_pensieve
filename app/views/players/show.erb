@@ -2,9 +2,9 @@
     background-size: cover;background-attachment: fixed;">
 <!–– Background from wallpapersafari.com ––>
 
-<h1>Memories with <%= @player.name %>:</h1><br>
+<h1>Memories with <%= @player.name.capitalize %>:</h1><br>
   <% @player.memories.each do |memory| %>
-    <li><a href="/memories/<%= memory.slug %>"><%= memory.title %></a></li><br>
+    <li><a href="/memories/<%= memory.slug %>"><%= memory.title.capitalize %></a></li><br>
   <% end %>
   
 <form method="GET" action="/players/<%= @player.slug %>/edit">
