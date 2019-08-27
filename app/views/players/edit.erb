@@ -1,13 +1,21 @@
-<body style="background: url(https://img.wallpapersafari.com/desktop/1366/768/25/0/DV1YEw.jpg) center no-repeat;
+<body style="background: url(https://oi27.photobucket.com/albums/c180/LVSpiritSeeker/Hogwarts%20at%20Dusk.jpg) center no-repeat;
     background-size: cover;background-attachment: fixed;">
 <!–– Background from wallpapersafari.com ––>
 
-<h1>Edit Person</h1>
+<h1>Edit Person/Pet</h1>
 
 <form method="post" action="/players/<%= @player.slug %>">
   <input id="hidden" type="hidden" name="_method" value="PATCH">
-  <h3>Name of Person: <input type="text" name="name" value="<%= @player.name.split.map(&:capitalize).join(' ')
+  <h3>Name of Person/Pet: <input type="text" name="name" value="<%= @player.name.split.map(&:capitalize).join(' ')
  %>"></h3><br>
   
-  <input type="submit" value="Save Person">
+  <input type="submit" value="Save Person/Pet">
 </form><br>
+
+<form method="GET" action="/players">
+  <input type="submit" value="People/Pets Page" />
+</form> <br>
+
+<form method="GET" action="/">
+  <input type="submit" value="Home Page" />
+</form>

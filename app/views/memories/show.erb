@@ -11,7 +11,7 @@
   <li><a href="/emotions/<%= emotion.slug %>"><%= emotion.name.capitalize %></a></li><br>
 <% end %>
 
-<h3>People:</h3><br>
+<h3>People/Pets:</h3><br>
 <% @memory.players.each do |player| %>
   <li><a href="/players/<%= player.slug %>"><%= player.name.split.map(&:capitalize).join(' ')
  %></a></li><br>

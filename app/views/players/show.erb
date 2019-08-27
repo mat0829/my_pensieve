@@ -1,4 +1,4 @@
-<body style="background: url(https://img.wallpapersafari.com/desktop/1366/768/25/0/DV1YEw.jpg) center no-repeat;
+<body style="background: url(https://oi27.photobucket.com/albums/c180/LVSpiritSeeker/Hogwarts%20at%20Dusk.jpg) center no-repeat;
     background-size: cover;background-attachment: fixed;">
 <!–– Background from wallpapersafari.com ––>
 
@@ -9,16 +9,16 @@
   <% end %>
   
 <form method="GET" action="/players/<%= @player.slug %>/edit">
-  <input type="submit" value="Edit Person" />
+  <input type="submit" value="Edit Person/Pet" />
 </form> <br>
   
 <form method="post" action="/players/<%= @player.slug %>/delete">
   <input id="hidden" type="hidden" name="_method" value="DELETE">
-  <input type="submit" value="Delete Person">
+  <input type="submit" value="Delete Person/Pet">
 </form> <br>
   
 <form method="GET" action="/players">
-  <input type="submit" value="People Page" />
+  <input type="submit" value="People/Pets Page" />
 </form> <br>
 
 <form method="GET" action="/">
