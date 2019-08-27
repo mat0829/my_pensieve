@@ -17,7 +17,8 @@
   
   <label><h3>Choose a Person(s):</h3></label>
   <% @players.each do |player| %>
-    <li><input type="checkbox" name="memory[players_ids][]" id="<%= player.name %>" value="<%= player.id %>" <%='checked' if @memory.players.include?(player) %>> <%= player.name.capitalize %></input></li>
+    <li><input type="checkbox" name="memory[players_ids][]" id="<%= player.name %>" value="<%= player.id %>" <%='checked' if @memory.players.include?(player) %>> <%= player.name.split.map(&:capitalize).join(' ')
+ %></input></li>
   <% end %><br>
   <h4>Add a New Person: <input type="text" id="new_player" name="player[name]"></h4><br>
   

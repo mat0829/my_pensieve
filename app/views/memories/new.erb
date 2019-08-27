@@ -20,7 +20,8 @@
   <% if !@players.empty? %>
     <label><h3>Choose a Person(s):</h3></label>
     <% @players.each do |player| %>
-    <li><input type="checkbox" name="players[]" id="<%= player.name %>" value="<%= player.id %>"> <%= player.name.capitalize %></input></li>
+    <li><input type="checkbox" name="players[]" id="<%= player.name %>" value="<%= player.id %>"> <%= player.name.split.map(&:capitalize).join(' ')
+ %></input></li>
     <% end %><br>
     <h4>Add a New Person: <input type="text" id="new_player" name="player[name]"></h4><br>
   <% else %>
