@@ -1,12 +1,9 @@
 class MemoriesController < ApplicationController
   
   get '/memories' do
-    if logged_in?
+      redirect_if_not_logged_in
       @memories = current_user.memories
       erb :'memories/index'
-    else
-      redirect to '/login'
-    end
   end
 
   get '/memories/new' do
@@ -20,33 +17,30 @@ class MemoriesController < ApplicationController
   end
 
   post '/memories' do
-    if logged_in?
-      if params[:title] == "" || params[:content] == ""
-        redirect to "/memories/new"
-      else
-        @memory = current_user.memories.build(title: params[:title], content: params[:content])
-        @memory.emotion_ids = params[:emotions]
-        @memory.player_ids = params[:players]
-        if !params["emotion"]["name"].empty?
-          @memory.emotions << Emotion.find_or_create_by(name: params["emotion"]["name"].capitalize)
-        end
-        if !params["player"]["name"].empty?
-          @memory.players << Player.find_or_create_by(name: params["player"]["name"].capitalize)
-        end
-        if @memory.save
-          redirect to "/memories/#{@memory.slug}"
-        else
-          redirect to "/memories/new"
-        end
-      end
+    redirect_if_not_logged_in
+    if params[:title] == "" || params[:content] == ""
+      redirect to "/memories/new"
     else
-      redirect to '/login'
+      @memory = current_user.memories.build(title: params[:title], content: params[:content])
+      @memory.emotion_ids = params[:emotions]
+      @memory.player_ids = params[:players]
+      if !params["emotion"]["name"].empty?
+        @memory.emotions << Emotion.find_or_create_by(name: params["emotion"]["name"].capitalize)
+      end
+      if !params["player"]["name"].empty?
+        @memory.players << Player.find_or_create_by(name: params["player"]["name"].capitalize)
+      end
+      if @memory.save
+        redirect to "/memories/#{@memory.slug}"
+      else
+        redirect to "/memories/new"
+      end
     end
   end
 
   get '/memories/:slug' do
     if logged_in?
-      @memory = Memory.find_by_slug(params[:slug])
+      @memory = current_user.memories.find_by_slug(params[:slug])
       erb :'memories/show'
     else
       redirect to '/login'

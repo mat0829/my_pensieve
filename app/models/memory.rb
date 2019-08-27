@@ -6,7 +6,7 @@ class Memory < ActiveRecord::Base
   has_many :players, through: :memory_players
   
   def slug
-      self.title.gsub(" ", "-").downcase
+      self.title.gsub(" ", "-").downcase + self.id.to_s
   end
   
   def self.find_by_slug(slug)
