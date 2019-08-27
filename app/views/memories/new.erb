@@ -9,7 +9,7 @@
   <% if !@emotions.empty? %>
     <label><h3>Choose an Emotion(s):</h3></label>
     <% @emotions.each do |emotion| %>
-      <li><input type="checkbox" name="emotions[]" id="<%= emotion.name %>" value="<%= emotion.id %>"> <%= emotion.name %></input  ></li>
+      <li><input type="checkbox" name="emotions[]" id="<%= emotion.name %>" value="<%= emotion.id %>"> <%= emotion.name.capitalize %></input  ></li>
     <% end %><br>
     <h4>Create a New Emotion: <input type="text" id="new_emotion" name="emotion[name]"></h4><br>
   <% else %>
@@ -20,12 +20,12 @@
   <% if !@players.empty? %>
     <label><h3>Choose a Person(s):</h3></label>
     <% @players.each do |player| %>
-    <li><input type="checkbox" name="players[]" id="<%= player.name %>" value="<%= player.id %>"> <%= player.name %></input></li>
+    <li><input type="checkbox" name="players[]" id="<%= player.name %>" value="<%= player.id %>"> <%= player.name.capitalize %></input></li>
     <% end %><br>
     <h4>Add a New Person(s): <input type="text" id="new_player" name="player[name]"></h4><br>
   <% else %>
     <h2><%= current_user.username.capitalize %>, add your first Person or your Name below:</h2>
-    <h4>Add a New Person(s): <input type="text" id="new_player" name="player[name]"></h4><br>
+    <h4>Add a New Person(s): <input type="text" id="new_player" name="player[name].capitalize"></h4><br>
   <% end %>
     
   <input class="btn btn-primary" type="submit" value="Bottle Your Memory">
