@@ -6,7 +6,8 @@
 
 <form method="post" action="/players/<%= @player.slug %>">
   <input id="hidden" type="hidden" name="_method" value="PATCH">
-  <h3>Name of Person: <input type="text" name="name" value="<%= @player.name.capitalize %>"></h3><br>
+  <h3>Name of Person: <input type="text" name="name" value="<%= @player.name.split.map(&:capitalize).join(' ')
+ %>"></h3><br>
   
   <input type="submit" value="Save Person">
 </form><br>

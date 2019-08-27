@@ -2,7 +2,8 @@
     background-size: cover;background-attachment: fixed;">
 <!–– Background from wallpapersafari.com ––>
 
-<h1>Memories with <%= @player.name.capitalize %>:</h1><br>
+<h1>Memories with <%= @player.name.split.map(&:capitalize).join(' ')
+ %>:</h1><br>
   <% @player.memories.each do |memory| %>
     <li><a href="/memories/<%= memory.slug %>"><%= memory.title.capitalize %></a></li><br>
   <% end %>
