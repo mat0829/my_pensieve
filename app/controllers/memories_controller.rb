@@ -78,6 +78,12 @@ class MemoriesController < ApplicationController
           if @memory.update(title: params[:title], content: params[:content])
             @memory.emotions = []
             @memory.players = []
+            if !params["emotion"]["name"].empty?
+              @memory.emotions << Emotion.find_or_create_by(name: params["emotion"]["name"].capitalize)
+            end
+            if !params["player"]["name"].empty?
+              @memory.players << Player.find_or_create_by(name: params["player"]["name"].capitalize)
+            end
             if params[:memory] !=  nil
               if params[:memory][:emotions_ids] != nil
                 params[:memory][:emotions_ids].each do |emotion_id|
