@@ -15,7 +15,7 @@
 
   /* --- Welcome Page Styles --- */
   body {
-    background: url(https://i.imgur.com/fbdpsXz.jpg) center no-repeat;
+    background: url(https://cdn.pixabay.com/photo/2016/10/26/23/24/colors-1772977_960_720.jpg) center no-repeat;
     /* Title: "Yellow Bokeh Lights" Background Artist/Creator: Pixabay from Pixabay.com */
     background-size: cover;
     background-attachment: fixed;
@@ -26,7 +26,7 @@
   }
 
   .wrapper {
-    background: url(https://i.imgur.com/IClN69x.jpg) no-repeat;
+    background: url(https://i.postimg.cc/d1nKc6KR/ognyan-zahariev-pensieve-05.jpg) no-repeat;
     /* Title: "The Pensieve - Dumbledore's office" Background Artist/Creator: Ognyan Zahariev from artstation.com */
     background-size: cover;
     -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
