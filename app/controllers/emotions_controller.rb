@@ -18,8 +18,8 @@ class EmotionsController < ApplicationController
     if params[:name] == ""
       redirect to "/emotions/#{params[:slug]}/edit"
     else
-    @emotion = Emotion.find_by_slug(params[:slug])
-    erb :'emotions/edit'
+      @emotion = Emotion.find_by_slug(params[:slug])
+      erb :'emotions/edit'
     end
   end
   
@@ -37,7 +37,7 @@ class EmotionsController < ApplicationController
   delete '/emotions/:slug/delete' do
     redirect_if_not_logged_in
     @emotion = Emotion.find_by_slug(params[:slug])
-      @emotion.delete
+    @emotion.delete
     redirect to '/emotions'
   end
 end
