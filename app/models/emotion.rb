@@ -4,10 +4,10 @@ class Emotion < ActiveRecord::Base
   has_many :users, through: :memories
   
   def slug
-      self.name.gsub(" ", "-").downcase
+    self.name.gsub(" ", "-").downcase
   end
   
   def self.find_by_slug(slug)
-      self.all.find{ |instance| instance.slug == slug }
+    self.all.find{ |instance| instance.slug == slug }
   end
 end

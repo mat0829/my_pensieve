@@ -4,12 +4,13 @@ class Memory < ActiveRecord::Base
   has_many :emotions, through: :memory_emotions
   has_many :memory_players
   has_many :players, through: :memory_players
+  validates :title, :content, presence: true
   
   def slug
-      self.title.gsub(" ", "-").downcase + self.id.to_s
+    self.title.gsub(" ", "-").downcase + self.id.to_s
   end
   
   def self.find_by_slug(slug)
-      self.all.find{ |instance| instance.slug == slug }
+    self.all.find{ |instance| instance.slug == slug }
   end
 end
