@@ -13,8 +13,8 @@
   <% @emotions.each do |emotion| %>
     <li><label><input type="checkbox" name="memory[emotions_ids][]" id="<%= emotion.name %>" value="<%= emotion.id %>" 
     <%='checked' if @memory.emotions.include?(emotion) %>> <%= emotion.name.capitalize %></label></li>
-  <% end %>
-  <br>
+  <% end %><br>
+  
   <h4>Create a New Emotion <input type="text" id="new_emotion" name="emotion[name]" autocomplete="off" 
   style="text-transform:capitalize"></h4><br>
   
@@ -22,8 +22,8 @@
   <% @players.each do |player| %>
     <li><label><input type="checkbox" name="memory[players_ids][]" id="<%= player.name %>" value="<%= player.id %>" 
     <%='checked' if @memory.players.include?(player) %>> <%= player.name.split.map(&:capitalize).join(' ') %></label></li>
-  <% end %>
-  <br>
+  <% end %><br>
+
   <h4>Add a New Person/Pet <input type="text" id="new_player" name="player[name]" autocomplete="off" 
   style="text-transform:capitalize"></h4><br>
   
@@ -31,9 +31,9 @@
 </form><br>
 
 <form method="GET" action="/memories">
-  <input type="submit" value="Memories Page" />
-</form> <br>
+  <input type="submit" value="Memories Page">
+</form><br>
 
 <form method="GET" action="/">
-  <input type="submit" value="Home Page" />
+  <input type="submit" value="Home Page">
 </form>

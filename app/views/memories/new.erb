@@ -6,15 +6,19 @@
 <form action="/memories" method="POST">
   <h3>Title of Memory: <input type="text" name="title" autocomplete="off"></h3><br>
   <h3><textarea name="content" cols="38" rows="10" placeholder="Enter Content here:"></textarea></h3><br>
+
   <% if !@emotions.empty? %>
     <label><h3>Choose an Emotion(s):</h3></label>
     <% @emotions.each do |emotion| %>
       <li><label><input type="checkbox" name="emotions[]" id="<%= emotion.name %>" value="<%= emotion.id %>"> 
       <%= emotion.name.capitalize %></label></li>
-    <% end %><br>
+    <% end %>
+    <br>
     <h4>Create a New Emotion: <input type="text" id="new_emotion" name="emotion[name]" autocomplete="off" 
     style="text-transform:capitalize"></h4><br>
+    
   <% else %>
+
     <h2><%= current_user.username.capitalize %>, add your first Emotion below:</h2>
     <h4>Create a New Emotion <input type="text" id="new_emotion" name="emotion[name]" autocomplete="off" 
     style="text-transform:capitalize"></h4><br>
@@ -25,10 +29,13 @@
     <% @players.each do |player| %>
     <li><label><input type="checkbox" name="players[]" id="<%= player.name %>" value="<%= player.id %>"> 
     <%= player.name.split.map(&:capitalize).join(' ') %></label></li>
-    <% end %><br>
+    <% end %>
+    <br>
     <h4>Add a New Person/Pet <input type="text" id="new_player" name="player[name]" autocomplete="off" 
     style="text-transform:capitalize"></h4><br>
+    
   <% else %>
+
     <h2><%= current_user.username.capitalize %>, add your first Person/Pet or your Name below:</h2>
     <h4>Add a New Person/Pet: <input type="text" id="new_player" name="player[name]" autocomplete="off" 
     style="text-transform:capitalize"></h4><br>
@@ -38,9 +45,9 @@
 </form><br>
 
 <form method="GET" action="/memories">
-  <input type="submit" value="Memories Page" />
+  <input type="submit" value="Memories Page">
 </form> <br>
 
 <form method="GET" action="/">
-  <input type="submit" value="Home Page" />
+  <input type="submit" value="Home Page">
 </form>

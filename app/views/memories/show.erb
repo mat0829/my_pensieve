@@ -13,8 +13,7 @@
 
 <h3>People/Pets:</h3><br>
 <% @memory.players.each do |player| %>
-  <li><a href="/players/<%= player.slug %>"><%= player.name.split.map(&:capitalize).join(' ')
- %></a></li><br>
+  <li><a href="/players/<%= player.slug %>"><%= player.name.split.map(&:capitalize).join(' ') %></a></li><br>
 <% end %><br>
 
 <form method="post" action="/memories/<%= @memory.slug %>/delete">
@@ -23,13 +22,13 @@
 </form> <br>
 
 <form method="GET" action="/memories/<%= @memory.slug %>/edit">
-  <input type="submit" value="Edit Memory" />
+  <input type="submit" value="Edit Memory">
 </form> <br>
 
 <form method="GET" action="/memories">
-  <input type="submit" value="Memories Page" />
+  <input type="submit" value="Memories Page">
 </form> <br>
 
 <form method="GET" action="/">
-  <input type="submit" value="Home Page" />
+  <input type="submit" value="Home Page">
 </form>
