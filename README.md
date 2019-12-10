@@ -7,8 +7,8 @@ This Ruby Gem provides an fun way to record Memories with Emotions and People al
 1. Fork the repository and clone it.
 2. Run `bundle install` to install gems (If you don't have bundler, first run `gem install bundler`)
 3. Set up the database with `rake db:migrate`.
-4. Run 'rake db:seed' to give your base Emotions. 
-5. Run `shotgun` to run the app and copy and paste the created url from the terminal into a new window. 
+4. Run `shotgun` to run the app and copy and paste the created url from the terminal into a new window.
+5. Run 'rake db:seed' after creating a User to create 10 demonstration memories, 10 emotions, and 30 people/pets.
 
 ## Contributing
 

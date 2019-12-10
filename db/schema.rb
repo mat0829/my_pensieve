@@ -11,6 +11,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 6) do
+
+  create_table "emotions", force: :cascade do |t|
+    t.string "name"
+  end
+
+  create_table "memories", force: :cascade do |t|
+    t.string  "title"
+    t.string  "content"
+    t.integer "user_id"
+  end
+
+  create_table "memory_emotions", force: :cascade do |t|
+    t.integer "memory_id"
+    t.integer "emotion_id"
+  end
+
+  create_table "memory_players", force: :cascade do |t|
+    t.integer "memory_id"
+    t.integer "player_id"
+  end
+
+  create_table "players", force: :cascade do |t|
+    t.string "name"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "username"
+    t.string "email"
+    t.string "password_digest"
+  end
 
 end
