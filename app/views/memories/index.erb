@@ -8,7 +8,7 @@
   <ul>
   <% @memories.each do |memory| %>
     <div>
-      <h3>"<%= memory.title.capitalize %>" <a href="/memories/<%= memory.slug %>"> View Memory</a></h3><br>
+      <h3>"<%= memory.title.split.map(&:capitalize).join(' ') %>" <a href="/memories/<%= memory.slug %>"> View Memory</a></h3><br>
     </div>
   <% end %>
   </ul><br>

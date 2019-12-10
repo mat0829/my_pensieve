@@ -2,7 +2,7 @@ class MemoriesController < ApplicationController
   
   get '/memories' do
       redirect_if_not_logged_in
-      @memories = current_user.memories
+      @memories = current_user.memories.sort_by{ |obj| obj.title }
       erb :'memories/index'
   end
 

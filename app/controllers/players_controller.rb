@@ -2,7 +2,7 @@ class PlayersController < ApplicationController
   
   get '/players' do
    if logged_in?
-    @players = current_user.players.uniq
+    @players = current_user.players.uniq.sort_by{ |obj| obj.name }
     erb :'/players/index'
     else
       redirect_to '/login'
