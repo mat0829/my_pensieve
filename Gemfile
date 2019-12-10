@@ -12,7 +12,6 @@ gem 'pry'
 gem 'bcrypt'
 gem 'tux'
 gem 'faker'
-gem 'seed_dump'
 
 group :test do
   gem 'rspec'
@@ -20,5 +19,4 @@ group :test do
   gem 'rack-test'
   gem 'database_cleaner', git: 'https://github.com/bmabey/database_cleaner.git'
   gem 'faker'
-  gem 'seed_dump'
 end
