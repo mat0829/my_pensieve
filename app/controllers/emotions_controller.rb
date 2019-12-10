@@ -1,58 +1,43 @@
 class EmotionsController < ApplicationController
   
   get '/emotions' do
-   if logged_in?
+    redirect_if_not_logged_in
     @emotions = current_user.emotions.uniq.sort_by{ |obj| obj.name }
     erb :'/emotions/index'
-    else
-      redirect_to '/login'
-    end
   end
   
   get '/emotions/:slug' do
-    if logged_in?
-      @emotion = Emotion.find_by_slug(params[:slug])
-      @emotion.memories = @emotion.memories.where(user_id: current_user.id)
-      erb :'emotions/show'
-    else
-      redirect_to '/login'
-    end
+    redirect_if_not_logged_in
+    @emotion = Emotion.find_by_slug(params[:slug])
+    @emotion.memories = @emotion.memories.where(user_id: current_user.id)
+    erb :'emotions/show'
   end
   
   get '/emotions/:slug/edit' do
-    if logged_in?
-      if params[:name] == ""
-        redirect to "/emotions/#{params[:slug]}/edit"
-      else
-      @emotion = Emotion.find_by_slug(params[:slug])
-      erb :'emotions/edit'
-      end
+    redirect_if_not_logged_in
+    if params[:name] == ""
+      redirect to "/emotions/#{params[:slug]}/edit"
     else
-      redirect to '/login'
+    @emotion = Emotion.find_by_slug(params[:slug])
+    erb :'emotions/edit'
     end
   end
   
   patch '/emotions/:slug' do
-    if logged_in?
-      if params[:name] == ""
-        redirect to "/emotions/#{params[:slug]}/edit"
-      else
-        @emotion = Emotion.find_by_slug(params[:slug])
-        @emotion.update(name: params[:name])
-        redirect to "/emotions/#{@emotion.slug}"
-      end
+    redirect_if_not_logged_in
+    if params[:name] == ""
+      redirect to "/emotions/#{params[:slug]}/edit"
     else
-      redirect to '/login'
+      @emotion = Emotion.find_by_slug(params[:slug])
+      @emotion.update(name: params[:name])
+      redirect to "/emotions/#{@emotion.slug}"
     end
   end
   
   delete '/emotions/:slug/delete' do
-    if logged_in?
-      @emotion = Emotion.find_by_slug(params[:slug])
-        @emotion.delete
-      redirect to '/emotions'
-    else
-      redirect to '/login'
-    end
+    redirect_if_not_logged_in
+    @emotion = Emotion.find_by_slug(params[:slug])
+      @emotion.delete
+    redirect to '/emotions'
   end
 end
