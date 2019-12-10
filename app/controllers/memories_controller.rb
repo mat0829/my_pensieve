@@ -8,8 +8,8 @@ class MemoriesController < ApplicationController
 
   get '/memories/new' do
     redirect_if_not_logged_in
-    @emotions = current_user.emotions.uniq
-    @players = current_user.players.uniq
+    @emotions = current_user.emotions.uniq.sort_by{ |obj| obj.name }
+    @players = current_user.players.uniq.sort_by{ |obj| obj.name }
     erb :'memories/new'
   end
 
@@ -44,8 +44,8 @@ class MemoriesController < ApplicationController
   get '/memories/:slug/edit' do
     redirect_if_not_logged_in
     @memory = Memory.find_by_slug(params[:slug])
-    @emotions = current_user.emotions.uniq
-    @players = current_user.players.uniq
+    @emotions = current_user.emotions.uniq.sort_by{ |obj| obj.name }
+    @players = current_user.players.uniq.sort_by{ |obj| obj.name }
     if @memory && @memory.user == current_user
       erb :'memories/edit'
     else
