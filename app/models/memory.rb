@@ -5,6 +5,7 @@ class Memory < ActiveRecord::Base
   has_many :memory_players
   has_many :players, through: :memory_players
   validates :title, :content, presence: true
+  validates :title, uniqueness: true
   
   def slug
     self.title.gsub(" ", "-").downcase + self.id.to_s
