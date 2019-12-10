@@ -6,8 +6,9 @@
 
 <form method="post" action="/memories/<%= @memory.slug %>">
   <input id="hidden" type="hidden" name="_method" value="PATCH">
-  <h3>Title of Memory: <input type="text" name="title" value="<%= @memory.title.capitalize %>"></h3><br>
-  <h3><textarea name="content" cols="75" rows="10"><%= @memory.content.capitalize %></textarea></h3><br>
+  <h3>Title of Memory: <input type="text" name="title" autocomplete="off" 
+  required="required" value="<%= @memory.title.capitalize %>"></h3><br>
+  <h3><textarea name="content" required="required" cols="75" rows="10"><%= @memory.content.capitalize %></textarea></h3><br>
   
   <label><h3>Choose an Emotion(s):</h3></label>
   <% @emotions.each do |emotion| %>
