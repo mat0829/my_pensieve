@@ -4,7 +4,7 @@
 
 <h1><%= @emotion.name.capitalize %> Memories:</h2><br>
   <% @emotion.memories.each do |memory| %>
-    <li><a href="/memories/<%= memory.slug %>"><%= memory.title.capitalize %></a></li><br>
+    <li><a href="/memories/<%= memory.slug %>"><%= memory.title.split.map(&:capitalize).join(' ') %></a></li><br>
   <% end %>
   
 <form method="GET" action="/emotions/<%= @emotion.slug %>/edit">
