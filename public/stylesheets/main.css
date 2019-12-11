@@ -37,6 +37,10 @@
     padding: 2.25%; /* 18px / 800px */
     width: 85%;
   }
+
+  .delete-button.delete-button {
+    color: red;
+  }
   
   input[type=submit] {
     background-color: black;

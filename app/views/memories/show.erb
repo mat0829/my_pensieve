@@ -16,13 +16,17 @@
   <li><a href="/players/<%= player.slug %>"><%= player.name.split.map(&:capitalize).join(' ') %></a></li><br>
 <% end %><br>
 
+<form method="GET" action="/memories/new">
+  <input type="submit" value="Add Another Memory">
+</form><br>
+
 <form method="post" action="/memories/<%= @memory.slug %>/delete">
   <input id="hidden" type="hidden" name="_method" value="DELETE">
-  <input type="submit" value="Delete Memory">
+  <input type="submit" value="Delete Your Memory" class= "delete-button">
 </form> <br>
 
 <form method="GET" action="/memories/<%= @memory.slug %>/edit">
-  <input type="submit" value="Edit Memory">
+  <input type="submit" value="Edit Your Memory">
 </form> <br>
 
 <form method="GET" action="/memories">

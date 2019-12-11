@@ -5,20 +5,20 @@
 <h1><%= @emotion.name.capitalize %> Memories:</h2><br>
   <% @emotion.memories.each do |memory| %>
     <li><a href="/memories/<%= memory.slug %>"><%= memory.title.split.map(&:capitalize).join(' ') %></a></li><br>
-  <% end %>
-  
-<form method="GET" action="/emotions/<%= @emotion.slug %>/edit">
-  <input type="submit" value="Edit Emotion">
-</form> <br>
-  
+  <% end %><br>
+
 <form method="post" action="/emotions/<%= @emotion.slug %>/delete">
   <input id="hidden" type="hidden" name="_method" value="DELETE">
-  <input type="submit" value="Delete Emotion">
-</form> <br>
+  <input type="submit" value="Delete Your Emotion" class= "delete-button">
+</form><br>
+  
+<form method="GET" action="/emotions/<%= @emotion.slug %>/edit">
+  <input type="submit" value="Edit Your Emotion">
+</form><br>
   
 <form method="GET" action="/emotions">
   <input type="submit" value="Emotions Page">
-</form> <br>
+</form><br>
 
 <form method="GET" action="/">
   <input type="submit" value="Home Page">

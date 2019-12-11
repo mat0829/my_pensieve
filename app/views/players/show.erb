@@ -6,20 +6,20 @@
  %>:</h1><br>
   <% @player.memories.each do |memory| %>
     <li><a href="/memories/<%= memory.slug %>"><%= memory.title.split.map(&:capitalize).join(' ') %></a></li><br>
-  <% end %>
-  
-<form method="GET" action="/players/<%= @player.slug %>/edit">
-  <input type="submit" value="Edit Person/Pet">
-</form> <br>
-  
+  <% end %><br>
+
 <form method="post" action="/players/<%= @player.slug %>/delete">
   <input id="hidden" type="hidden" name="_method" value="DELETE">
-  <input type="submit" value="Delete Person/Pet">
-</form> <br>
+  <input type="submit" value="Delete Your Person/Pet" class= "delete-button">
+</form><br>
+  
+<form method="GET" action="/players/<%= @player.slug %>/edit">
+  <input type="submit" value="Edit Your Person/Pet">
+</form><br>
   
 <form method="GET" action="/players">
   <input type="submit" value="People/Pets Page">
-</form> <br>
+</form><br>
 
 <form method="GET" action="/">
   <input type="submit" value="Home Page">
