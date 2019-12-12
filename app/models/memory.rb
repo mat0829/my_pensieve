@@ -6,6 +6,10 @@ class Memory < ActiveRecord::Base
   has_many :players, through: :memory_players
   validates :title, :content, presence: true
   validates :title, uniqueness: true
+
+  def title=(s)
+    write_attribute(:title, s.to_s.titleize)
+  end
   
   def slug
     self.title.gsub(" ", "-").downcase + self.id.to_s

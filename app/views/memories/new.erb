@@ -12,7 +12,7 @@
     <label><h3>Choose an Emotion(s):</h3></label>
     <% @emotions.each do |emotion| %>
       <li><label><input type="checkbox" name="emotions[]" id="<%= emotion.name %>" value="<%= emotion.id %>"> 
-      <%= emotion.name.capitalize %></label></li>
+      <%= emotion.name %></label></li>
     <% end %>
     <br>
     <h4>Create a New Emotion: <input type="text" id="new_emotion" name="emotion[name]" autocomplete="off" 

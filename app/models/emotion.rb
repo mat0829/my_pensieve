@@ -2,6 +2,10 @@ class Emotion < ActiveRecord::Base
   has_many :memory_emotions
   has_many :memories, through: :memory_emotions
   has_many :users, through: :memories
+
+  def name=(s)
+    write_attribute(:name, s.to_s.titleize)
+  end
   
   def slug
     self.name.gsub(" ", "-").downcase

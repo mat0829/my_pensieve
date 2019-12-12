@@ -2,7 +2,7 @@ class MemoriesController < ApplicationController
   
   get '/memories' do
     redirect_if_not_logged_in
-    @memories = current_user.memories.sort_by{ |obj| obj.title.capitalize }
+    @memories = current_user.memories.sort_by{ |obj| obj.title }
     erb :'memories/index'
   end
 
@@ -22,10 +22,10 @@ class MemoriesController < ApplicationController
       @memory.emotion_ids = params[:emotions]
       @memory.player_ids = params[:players]
       if !params["emotion"]["name"].empty?
-        @memory.emotions << Emotion.find_or_create_by(name: params["emotion"]["name"].capitalize)
+        @memory.emotions << Emotion.find_or_create_by(name: params["emotion"]["name"])
       end
       if !params["player"]["name"].empty?
-        @memory.players << Player.find_or_create_by(name: params["player"]["name"].capitalize)
+        @memory.players << Player.find_or_create_by(name: params["player"]["name"])
       end
       if @memory.save
         redirect to "/memories/#{@memory.slug}"
@@ -64,10 +64,10 @@ class MemoriesController < ApplicationController
           @memory.emotions = []
           @memory.players = []
           if !params["emotion"]["name"].empty?
-            @memory.emotions << Emotion.find_or_create_by(name: params["emotion"]["name"].capitalize)
+            @memory.emotions << Emotion.find_or_create_by(name: params["emotion"]["name"])
           end
           if !params["player"]["name"].empty?
-            @memory.players << Player.find_or_create_by(name: params["player"]["name"].capitalize)
+            @memory.players << Player.find_or_create_by(name: params["player"]["name"])
           end
           if params[:memory] !=  nil
             if params[:memory][:emotions_ids] != nil

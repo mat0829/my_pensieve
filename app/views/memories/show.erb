@@ -8,7 +8,7 @@
 
 <h3>Emotions:</h3><br>
 <% @memory.emotions.each do |emotion| %>
-  <li><a href="/emotions/<%= emotion.slug %>"><%= emotion.name.capitalize %></a></li><br>
+  <li><a href="/emotions/<%= emotion.slug %>"><%= emotion.name %></a></li><br>
 <% end %>
 
 <h3>People/Pets:</h3><br>

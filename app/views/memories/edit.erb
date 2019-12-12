@@ -7,13 +7,13 @@
 <form method="post" action="/memories/<%= @memory.slug %>">
   <input id="hidden" type="hidden" name="_method" value="PATCH">
   <h3>Title of Memory: <input type="text" name="title" style="text-transform:capitalize" autocomplete="off" 
-  required="required" value="<%= @memory.title.capitalize %>"></h3><br>
+  required="required" value="<%= @memory.title %>"></h3><br>
   <h3><textarea name="content" required="required" cols="75" rows="10"><%= @memory.content.capitalize %></textarea></h3><br>
   
   <label><h3>Choose an Emotion(s):</h3></label>
   <% @emotions.each do |emotion| %>
     <li><label><input type="checkbox" name="memory[emotions_ids][]" id="<%= emotion.name %>" value="<%= emotion.id %>" 
-    <%='checked' if @memory.emotions.include?(emotion) %>> <%= emotion.name.capitalize %></label></li>
+    <%='checked' if @memory.emotions.include?(emotion) %>> <%= emotion.name %></label></li>
   <% end %><br>
   
   <h4>Create a New Emotion <input type="text" id="new_emotion" name="emotion[name]" autocomplete="off" 
