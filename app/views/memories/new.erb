@@ -4,7 +4,8 @@
 
 <h1>Add a New Memory</h1>
 <form action="/memories" method="POST">
-  <h3>Title of Memory: <input type="text" name="title" autocomplete="off" required="required"></h3><br>
+  <h3>Title of Memory: <input type="text" name="title" style="text-transform:capitalize" 
+  autocomplete="off" required="required"></h3><br>
   <h3><textarea name="content" cols="38" rows="10" placeholder="Enter Content here:" required="required"></textarea></h3><br>
 
   <% if !@emotions.empty? %>
