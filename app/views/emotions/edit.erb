@@ -4,12 +4,12 @@
 
 <h1>Edit Emotion</h1>
 
-
 <form method="post" action="/emotions/<%= @emotion.slug %>">
   <input id="hidden" type="hidden" name="_method" value="PATCH">
+  
   <h3>Name of Emotion: <input type="text" name="name" autocomplete="off" 
-  required="required" style="text-transform:capitalize" value="<%= @emotion.name %>"></h3>
-  <br>
+  required="required" style="text-transform:capitalize" value="<%= @emotion.name %>"></h3><br>
+
   <input type="submit" value="Bottle Your Emotion">
 </form><br>
 

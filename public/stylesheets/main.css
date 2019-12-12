@@ -38,6 +38,12 @@
     width: 85%;
   }
 
+  .form-3-col {
+    -webkit-column-count: 3; /* Chrome, Safari, Opera */
+    -moz-column-count: 3; /* Firefox */
+    column-count: 3;
+  }  
+
   .delete-button.delete-button {
     color: red;
   }

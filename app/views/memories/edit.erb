@@ -6,24 +6,40 @@
 
 <form method="post" action="/memories/<%= @memory.slug %>">
   <input id="hidden" type="hidden" name="_method" value="PATCH">
+
   <h3>Title of Memory: <input type="text" name="title" style="text-transform:capitalize" autocomplete="off" 
   required="required" value="<%= @memory.title %>"></h3><br>
+
   <h3><textarea name="content" required="required" cols="75" rows="10"><%= @memory.content.capitalize %></textarea></h3><br>
   
-  <label><h3>Choose an Emotion(s):</h3></label>
-  <% @emotions.each do |emotion| %>
-    <li><label><input type="checkbox" name="memory[emotions_ids][]" id="<%= emotion.name %>" value="<%= emotion.id %>" 
-    <%='checked' if @memory.emotions.include?(emotion) %>> <%= emotion.name %></label></li>
-  <% end %><br>
+  <label><h3>Choose an Emotion(s):</h3></label><br>
+
+  <ul>
+    <div class="form-3-col">
+      <% @emotions.each do |emotion| %>
+        <li>
+          <label><input type="checkbox" name="memory[emotions_ids][]" id="<%= emotion.name %>" value="<%= emotion.id %>" 
+          <%='checked' if @memory.emotions.include?(emotion) %>> <%= emotion.name %></label>
+        </li>
+      <% end %>
+    </div>
+  </ul><br>
   
   <h4>Create a New Emotion <input type="text" id="new_emotion" name="emotion[name]" autocomplete="off" 
   style="text-transform:capitalize"></h4><br>
   
-  <label><h3>Choose a Person/Pet(s):</h3></label>
-  <% @players.each do |player| %>
-    <li><label><input type="checkbox" name="memory[players_ids][]" id="<%= player.name %>" value="<%= player.id %>" 
-    <%='checked' if @memory.players.include?(player) %>> <%= player.name.split.map(&:capitalize).join(' ') %></label></li>
-  <% end %><br>
+  <label><h3>Choose a Person/Pet(s):</h3></label><br>
+  
+    <ul>
+      <div class="form-3-col">
+        <% @players.each do |player| %>
+          <li>
+            <label><input type="checkbox" name="memory[players_ids][]" id="<%= player.name %>" value="<%= player.id %>" 
+            <%='checked' if @memory.players.include?(player) %>> <%= player.name %></label>
+          </li>
+        <% end %>
+      </div>
+    </ul><br>
 
   <h4>Add a New Person/Pet <input type="text" id="new_player" name="player[name]" autocomplete="off" 
   style="text-transform:capitalize"></h4><br>

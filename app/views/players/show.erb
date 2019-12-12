@@ -2,10 +2,9 @@
     background-size: cover;background-attachment: fixed;">
 <!–– Background from wallpapersafari.com ––>
 
-<h1>Memories with <%= @player.name.split.map(&:capitalize).join(' ')
- %>:</h1><br>
+<h1>Memories with <%= @player.name %>:</h1><br>
   <% @player.memories.each do |memory| %>
-    <li><a href="/memories/<%= memory.slug %>"><%= memory.title.split.map(&:capitalize).join(' ') %></a></li><br>
+    <li><a href="/memories/<%= memory.slug %>"><%= memory.title %></a></li><br>
   <% end %><br>
 
 <form method="post" action="/players/<%= @player.slug %>/delete">

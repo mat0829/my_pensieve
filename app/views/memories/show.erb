@@ -2,7 +2,7 @@
     background-size: cover;background-attachment: fixed;">
 <!–– Background Artist/Creator: Activedia from Pixabay.com ––>
 <ul>
-  <h1>"<%= @memory.title.split.map(&:capitalize).join(' ') %>"</h1><br>
+  <h1>"<%= @memory.title %>"</h1><br>
   <p><%= @memory.content.capitalize %></p>
 </ul>
 
@@ -13,7 +13,7 @@
 
 <h3>People/Pets:</h3><br>
 <% @memory.players.each do |player| %>
-  <li><a href="/players/<%= player.slug %>"><%= player.name.split.map(&:capitalize).join(' ') %></a></li><br>
+  <li><a href="/players/<%= player.slug %>"><%= player.name %></a></li><br>
 <% end %><br>
 
 <form method="GET" action="/memories/new">

@@ -3,18 +3,22 @@
 <!–– Background from wallpapersafari.com ––>
 
 <nav>
-  <% if logged_in? %>
-    <h1>Welcome, <%=current_user.username.capitalize %>!</h1><br>
-    <a href="/memories/new"> Add Memory </a> |
-    <a href="/memories"> Memories Page </a> |
-    <a href="/emotions"> Emotions Page </a> |
-    <a href="/players"> People/Pets Page </a> |
-    <a href="/logout"> Log Out </a>
+  <center>
+    <% if logged_in? %>
+      
+      <h1>Welcome, <%=current_user.username.capitalize %>!</h1><br>
+      <a href="/memories/new"> Add Memory </a> |
+      <a href="/memories"> Memories Page </a> |
+      <a href="/emotions"> Emotions Page </a> |
+      <a href="/players"> People/Pets Page </a> |
+      <a href="/logout"> Logout </a>
 
-  <% else %>
+    <% else %>
   
-    <h1>Please Sign in or Sign up below:</h1><br>
-    <a href="/signup">Create User</a> |
-    <a href="/login"> Sign In </a>
-  <%end %>
+      <h1>Please Login or Sign up below:</h1><br>
+      <a href="/signup">Create User</a> |
+      <a href="/login"> Login </a>
+
+    <%end %>
+  </center>
 </nav>
