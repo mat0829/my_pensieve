@@ -1,20 +1,26 @@
 <body style="background: url(https://cdn.pixabay.com/photo/2016/05/10/21/50/meditation-1384758_960_720.jpg) center no-repeat;
     background-size: cover;background-attachment: fixed;">
 <!–– Background Artist/Creator: Activedia from Pixabay.com ––>
-<ul>
-  <h1>"<%= @memory.title %>"</h1><br>
-  <p><%= @memory.content.capitalize %></p>
-</ul>
+
+<h1>"<%= @memory.title %>"</h1><br>
+
+<p><%= @memory.content.capitalize %></p>
 
 <h3>Emotions:</h3><br>
-<% @memory.emotions.each do |emotion| %>
-  <li><a href="/emotions/<%= emotion.slug %>"><%= emotion.name %></a></li><br>
-<% end %>
+
+<ul>
+  <% @memory.emotions.each do |emotion| %>
+    <li><a href="/emotions/<%= emotion.slug %>"><%= emotion.name %></a></li><br>
+  <% end %>
+</ul><br>
 
 <h3>People/Pets:</h3><br>
-<% @memory.players.each do |player| %>
-  <li><a href="/players/<%= player.slug %>"><%= player.name %></a></li><br>
-<% end %><br>
+
+<ul>
+  <% @memory.players.each do |player| %>
+    <li><a href="/players/<%= player.slug %>"><%= player.name %></a></li><br>
+  <% end %>
+</ul><br>
 
 <form method="GET" action="/memories/new">
   <input type="submit" value="Add Another Memory">
@@ -23,15 +29,15 @@
 <form method="post" action="/memories/<%= @memory.slug %>/delete">
   <input id="hidden" type="hidden" name="_method" value="DELETE">
   <input type="submit" value="Delete Your Memory" class= "delete-button">
-</form> <br>
+</form><br>
 
 <form method="GET" action="/memories/<%= @memory.slug %>/edit">
   <input type="submit" value="Edit Your Memory">
-</form> <br>
+</form><br>
 
 <form method="GET" action="/memories">
   <input type="submit" value="Memories Page">
-</form> <br>
+</form><br>
 
 <form method="GET" action="/">
   <input type="submit" value="Home Page">

@@ -7,6 +7,7 @@
     <% if logged_in? %>
       
       <h1>Welcome, <%=current_user.username.capitalize %>!</h1><br>
+      
       <a href="/memories/new"> Add Memory </a> |
       <a href="/memories"> Memories Page </a> |
       <a href="/emotions"> Emotions Page </a> |
@@ -16,9 +17,10 @@
     <% else %>
   
       <h1>Please Login or Sign up below:</h1><br>
+
       <a href="/signup">Create User</a> |
       <a href="/login"> Login </a>
 
-    <%end %>
+    <% end %>
   </center>
 </nav>

@@ -3,11 +3,12 @@
 <!–– Background Artist/Creator: TheDigitalArtist from Pixabay.com ––>
 
 <h1><%= @emotion.name %> Memories:</h2><br>
+
   <ul>
     <% @emotion.memories.each do |memory| %>
       <li><a href="/memories/<%= memory.slug %>"><%= memory.title %></a></li><br>
-    <% end %><br>
-  </ul>
+    <% end %>
+  </ul><br>
 
 <form method="post" action="/emotions/<%= @emotion.slug %>/delete">
   <input id="hidden" type="hidden" name="_method" value="DELETE">

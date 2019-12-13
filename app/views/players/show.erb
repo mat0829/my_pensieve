@@ -3,9 +3,12 @@
 <!–– Background from wallpapersafari.com ––>
 
 <h1>Memories with <%= @player.name %>:</h1><br>
-  <% @player.memories.each do |memory| %>
-    <li><a href="/memories/<%= memory.slug %>"><%= memory.title %></a></li><br>
-  <% end %><br>
+
+  <ul>
+    <% @player.memories.each do |memory| %>
+      <li><a href="/memories/<%= memory.slug %>"><%= memory.title %></a></li><br>
+    <% end %>
+  </ul><br>
 
 <form method="post" action="/players/<%= @player.slug %>/delete">
   <input id="hidden" type="hidden" name="_method" value="DELETE">
