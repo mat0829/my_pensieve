@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   has_secure_password
-  has_many :memories
+  has_many :memories, :dependent => :destroy
   has_many :emotions, through: :memories
   has_many :players, through: :memories
   validates :username, :email, :password, presence: true

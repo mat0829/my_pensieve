@@ -97,7 +97,7 @@ class MemoriesController < ApplicationController
     redirect_if_not_logged_in
     @memory = Memory.find_by_slug(params[:slug])
     if @memory && @memory.user == current_user
-      @memory.delete
+      @memory.destroy
     end
     redirect to '/memories'
   end

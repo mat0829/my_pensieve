@@ -4,7 +4,7 @@
 
 <h1>"<%= @memory.title %>"</h1><br>
 
-<p><%= @memory.content.capitalize %></p>
+<p><%= @memory.content.gsub(/([a-z])((?:[^.?!]|\.(?=[a-z]))*)/i) { $1.upcase + $2.rstrip } %></p>
 
 <h3>Emotions:</h3><br>
 
