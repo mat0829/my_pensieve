@@ -18,8 +18,8 @@ else
 
   user = User.create!(
     username: 'Harry Potter',
-    email: 'email@email.com',
-    password: 'password'
+    email: 'chosen_one@hogwarts.com',
+    password: 'magic'
   )
 
   emotions = Emotion.create!([{ name: 'Joy'}, { name: 'Trust' }, { name: 'Fear' }, { name: 'Surprise' }, 
@@ -52,7 +52,7 @@ else
   puts " - There are #{Memory.count} Memories."
   puts " - There are #{Emotion.count} Emotions."
   puts " - There are #{Player.count} People and/or Pets."
-  puts " - Created a new User named Harry Potter with a password of password."
+  puts " - Created a new User named Harry Potter with a password of magic."
   puts ""
   puts " - run 'rake db:seed' again to delete User Harry Potter. Repeat as many times as you wish."
   puts ""

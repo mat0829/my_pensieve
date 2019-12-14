@@ -6,6 +6,10 @@ class User < ActiveRecord::Base
   validates :username, :email, :password, presence: true
   validates :email, :username, uniqueness: true
   validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }
+
+  def username=(s)
+    write_attribute(:username, s.to_s.titleize)
+  end
   
   def slug
     username.downcase.gsub(" ","-")
